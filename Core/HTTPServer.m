@@ -57,7 +57,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
  * Standard Constructor.
  * Instantiates an HTTP server, but does not start it.
 **/
-- (id)init
+- (instancetype)init
 {
 	if ((self = [super init]))
 	{
@@ -761,6 +761,9 @@ static NSThread *bonjourThread;
 	
 	}
 }
+
+- (void)donothingatall: (NSTimer *)timer
+{}
 
 + (void)executeBonjourBlock:(dispatch_block_t)block
 {

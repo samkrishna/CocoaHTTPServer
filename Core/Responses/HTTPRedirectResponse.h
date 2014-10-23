@@ -7,6 +7,6 @@
 	NSString *redirectPath;
 }
 
-- (id)initWithPath:(NSString *)redirectPath;
+- (instancetype)initWithPath:(NSString *)redirectPath;
 
 @end

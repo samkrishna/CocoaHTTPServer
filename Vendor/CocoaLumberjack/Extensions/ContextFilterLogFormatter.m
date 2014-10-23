@@ -20,7 +20,7 @@
 - (void)addToSet:(int)loggingContext;
 - (void)removeFromSet:(int)loggingContext;
 
-- (NSArray *)currentSet;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *currentSet;
 
 - (BOOL)isInSet:(int)loggingContext;
 
@@ -35,7 +35,7 @@
 	LoggingContextSet *contextSet;
 }
 
-- (id)init
+- (instancetype)init
 {
 	if ((self = [super init]))
 	{
@@ -84,7 +84,7 @@
 	LoggingContextSet *contextSet;
 }
 
-- (id)init
+- (instancetype)init
 {
 	if ((self = [super init]))
 	{
@@ -134,7 +134,7 @@
 	NSMutableSet *set;
 }
 
-- (id)init
+- (instancetype)init
 {
 	if ((self = [super init]))
 	{
@@ -148,7 +148,7 @@
 {
 	OSSpinLockLock(&lock);
 	{
-		[set addObject:[NSNumber numberWithInt:loggingContext]];
+		[set addObject:@(loggingContext)];
 	}
 	OSSpinLockUnlock(&lock);
 }
@@ -157,7 +157,7 @@
 {
 	OSSpinLockLock(&lock);
 	{
-		[set removeObject:[NSNumber numberWithInt:loggingContext]];
+		[set removeObject:@(loggingContext)];
 	}
 	OSSpinLockUnlock(&lock);
 }
@@ -181,7 +181,7 @@
 	
 	OSSpinLockLock(&lock);
 	{
-		result = [set containsObject:[NSNumber numberWithInt:loggingContext]];
+		result = [set containsObject:@(loggingContext)];
 	}
 	OSSpinLockUnlock(&lock);
 	

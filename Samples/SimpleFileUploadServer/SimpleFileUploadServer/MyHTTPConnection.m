@@ -47,7 +47,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	if([method isEqualToString:@"POST"] && [path isEqualToString:@"/upload.html"]) {
         // here we need to make sure, boundary is set in header
         NSString* contentType = [request headerField:@"Content-Type"];
-        int paramsSeparator = [contentType rangeOfString:@";"].location;
+        NSUInteger paramsSeparator = [contentType rangeOfString:@";"].location;
         if( NSNotFound == paramsSeparator ) {
             return NO;
         }
@@ -99,7 +99,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 			[filesStr appendFormat:@"<a href=\"%@\"> %@ </a><br/>",filePath, [filePath lastPathComponent]];
 		}
 		NSString* templatePath = [[config documentRoot] stringByAppendingPathComponent:@"upload.html"];
-		NSDictionary* replacementDict = [NSDictionary dictionaryWithObject:filesStr forKey:@"MyFiles"];
+		NSDictionary* replacementDict = @{@"MyFiles": filesStr};
 		// use dynamic file response to apply our links to response template
 		return [[HTTPDynamicFileResponse alloc] initWithFilePath:templatePath forConnection:self separator:@"%" replacementDictionary:replacementDict];
 	}
@@ -140,8 +140,8 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	// in this sample, we are not interested in parts, other then file parts.
 	// check content disposition to find out filename
 
-    MultipartMessageHeaderField* disposition = [header.fields objectForKey:@"Content-Disposition"];
-	NSString* filename = [[disposition.params objectForKey:@"filename"] lastPathComponent];
+    MultipartMessageHeaderField* disposition = (header.fields)[@"Content-Disposition"];
+	NSString* filename = [(disposition.params)[@"filename"] lastPathComponent];
 
     if ( (nil == filename) || [filename isEqualToString: @""] ) {
         // it's either not a file part, or

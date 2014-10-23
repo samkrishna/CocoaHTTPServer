@@ -13,7 +13,7 @@
 
 @implementation HTTPAuthenticationRequest
 
-- (id)initWithRequest:(HTTPMessage *)request
+- (instancetype)initWithRequest:(HTTPMessage *)request
 {
 	if ((self = [super init]))
 	{

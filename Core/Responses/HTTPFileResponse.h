@@ -19,7 +19,7 @@
 	NSUInteger bufferSize;
 }
 
-- (id)initWithFilePath:(NSString *)filePath forConnection:(HTTPConnection *)connection;
-- (NSString *)filePath;
+- (instancetype)initWithFilePath:(NSString *)filePath forConnection:(HTTPConnection *)connection;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *filePath;
 
 @end

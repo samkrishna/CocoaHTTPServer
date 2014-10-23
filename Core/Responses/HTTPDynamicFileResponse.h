@@ -44,7 +44,7 @@
 	NSDictionary *replacementDict;
 }
 
-- (id)initWithFilePath:(NSString *)filePath
+- (instancetype)initWithFilePath:(NSString *)filePath
          forConnection:(HTTPConnection *)connection
              separator:(NSString *)separatorStr
  replacementDictionary:(NSDictionary *)dictionary;

@@ -81,12 +81,12 @@
 
 @synthesize maximumNumberOfLogFiles;
 
-- (id)init
+- (instancetype)init
 {
 	return [self initWithLogsDirectory:nil];
 }
 
-- (id)initWithLogsDirectory:(NSString *)aLogsDirectory
+- (instancetype)initWithLogsDirectory:(NSString *)aLogsDirectory
 {
 	if ((self = [super init]))
 	{
@@ -121,8 +121,8 @@
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-	NSNumber *old = [change objectForKey:NSKeyValueChangeOldKey];
-	NSNumber *new = [change objectForKey:NSKeyValueChangeNewKey];
+	NSNumber *old = change[NSKeyValueChangeOldKey];
+	NSNumber *new = change[NSKeyValueChangeNewKey];
 	
 	if ([old isEqual:new])
 	{
@@ -171,7 +171,7 @@
 	
 	if (count > 0)
 	{
-		DDLogFileInfo *logFileInfo = [sortedLogFileInfos objectAtIndex:0];
+		DDLogFileInfo *logFileInfo = sortedLogFileInfos[0];
 		
 		if (!logFileInfo.isArchived)
 		{
@@ -193,7 +193,7 @@
 	NSUInteger i;
 	for (i = maxNumLogFiles; i < count; i++)
 	{
-		DDLogFileInfo *logFileInfo = [sortedArchivedLogFileInfos objectAtIndex:i];
+		DDLogFileInfo *logFileInfo = sortedArchivedLogFileInfos[i];
 		
 		NSLogInfo(@"DDLogFileManagerDefault: Deleting file: %@", logFileInfo.fileName);
 		
@@ -219,7 +219,7 @@
 #else
 	NSString *appName = [[NSProcessInfo processInfo] processName];
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-	NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
+	NSString *basePath = ([paths count] > 0) ? paths[0] : NSTemporaryDirectory();
 	NSString *logsDirectory = [[basePath stringByAppendingPathComponent:@"Logs"] stringByAppendingPathComponent:appName];
 
 #endif
@@ -443,12 +443,12 @@
 
 @implementation DDLogFileFormatterDefault
 
-- (id)init
+- (instancetype)init
 {
 	return [self initWithDateFormatter:nil];
 }
 
-- (id)initWithDateFormatter:(NSDateFormatter *)aDateFormatter
+- (instancetype)initWithDateFormatter:(NSDateFormatter *)aDateFormatter
 {
 	if ((self = [super init]))
 	{
@@ -481,14 +481,14 @@
 
 @implementation DDFileLogger
 
-- (id)init
+- (instancetype)init
 {
 	DDLogFileManagerDefault *defaultLogFileManager = [[DDLogFileManagerDefault alloc] init];
 	
 	return [self initWithLogFileManager:defaultLogFileManager];
 }
 
-- (id)initWithLogFileManager:(id <DDLogFileManager>)aLogFileManager
+- (instancetype)initWithLogFileManager:(id <DDLogFileManager>)aLogFileManager
 {
 	if ((self = [super init]))
 	{
@@ -797,7 +797,7 @@
 		
 		if ([sortedLogFileInfos count] > 0)
 		{
-			DDLogFileInfo *mostRecentLogFileInfo = [sortedLogFileInfos objectAtIndex:0];
+			DDLogFileInfo *mostRecentLogFileInfo = sortedLogFileInfos[0];
 			
 			BOOL useExistingLogFile = YES;
 			BOOL shouldArchiveMostRecent = NO;
@@ -940,7 +940,7 @@
 	return [[DDLogFileInfo alloc] initWithFilePath:aFilePath];
 }
 
-- (id)initWithFilePath:(NSString *)aFilePath
+- (instancetype)initWithFilePath:(NSString *)aFilePath
 {
 	if ((self = [super init]))
 	{
@@ -975,7 +975,7 @@
 {
 	if (modificationDate == nil)
 	{
-		modificationDate = [[self fileAttributes] objectForKey:NSFileModificationDate];
+		modificationDate = [self fileAttributes][NSFileModificationDate];
 	}
 	
 	return modificationDate;
@@ -1017,7 +1017,7 @@
 		
 	#else
 		
-		creationDate = [[self fileAttributes] objectForKey:NSFileCreationDate];
+		creationDate = [self fileAttributes][NSFileCreationDate];
 		
 	#endif
 		
@@ -1029,7 +1029,7 @@
 {
 	if (fileSize == 0)
 	{
-		fileSize = [[[self fileAttributes] objectForKey:NSFileSize] unsignedLongLongValue];
+		fileSize = [[self fileAttributes][NSFileSize] unsignedLongLongValue];
 	}
 	
 	return fileSize;
@@ -1042,16 +1042,14 @@
 
 - (NSString *)description
 {
-	return [[NSDictionary dictionaryWithObjectsAndKeys:
-		self.filePath, @"filePath",
-		self.fileName, @"fileName",
-		self.fileAttributes, @"fileAttributes",
-		self.creationDate, @"creationDate",
-		self.modificationDate, @"modificationDate",
-		[NSNumber numberWithUnsignedLongLong:self.fileSize], @"fileSize",
-		[NSNumber numberWithDouble:self.age], @"age",
-		[NSNumber numberWithBool:self.isArchived], @"isArchived",
-	nil] description];
+	return [@{@"filePath": self.filePath,
+		@"fileName": self.fileName,
+		@"fileAttributes": self.fileAttributes,
+		@"creationDate": self.creationDate,
+		@"modificationDate": self.modificationDate,
+		@"fileSize": @(self.fileSize),
+		@"age": @(self.age),
+		@"isArchived": @(self.isArchived)} description];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

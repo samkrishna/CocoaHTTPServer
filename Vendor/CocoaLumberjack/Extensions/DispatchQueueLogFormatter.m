@@ -17,7 +17,7 @@
 
 @implementation DispatchQueueLogFormatter
 
-- (id)init
+- (instancetype)init
 {
 	if ((self = [super init]))
 	{
@@ -31,7 +31,7 @@
 		
 		// Set default replacements:
 		
-		[_replacements setObject:@"main" forKey:@"com.apple.main-thread"];
+		_replacements[@"com.apple.main-thread"] = @"main";
 	}
 	return self;
 }
@@ -50,7 +50,7 @@
 	
 	OSSpinLockLock(&lock);
 	{
-		result = [_replacements objectForKey:longLabel];
+		result = _replacements[longLabel];
 	}
 	OSSpinLockUnlock(&lock);
 	
@@ -62,7 +62,7 @@
 	OSSpinLockLock(&lock);
 	{
 		if (shortLabel)
-			[_replacements setObject:shortLabel forKey:longLabel];
+			_replacements[longLabel] = shortLabel;
 		else
 			[_replacements removeObjectForKey:longLabel];
 	}
@@ -124,13 +124,13 @@
 		NSString *abrvLabel;
 		
 		if (useQueueLabel)
-			fullLabel = [NSString stringWithUTF8String:logMessage->queueLabel];
+			fullLabel = @(logMessage->queueLabel);
 		else
 			fullLabel = logMessage->threadName;
 		
 		OSSpinLockLock(&lock);
 		{
-			abrvLabel = [_replacements objectForKey:fullLabel];
+			abrvLabel = _replacements[fullLabel];
 		}
 		OSSpinLockUnlock(&lock);
 		

@@ -119,8 +119,8 @@
 	NSString *_logsDirectory;
 }
 
-- (id)init;
-- (id)initWithLogsDirectory:(NSString *)logsDirectory;
+- (instancetype)init;
+- (instancetype)initWithLogsDirectory:(NSString *)logsDirectory;
 
 /* Inherited from DDLogFileManager protocol:
 
@@ -159,8 +159,8 @@
 	NSDateFormatter *dateFormatter;
 }
 
-- (id)init;
-- (id)initWithDateFormatter:(NSDateFormatter *)dateFormatter;
+- (instancetype)init;
+- (instancetype)initWithDateFormatter:(NSDateFormatter *)dateFormatter;
 
 @end
 
@@ -181,8 +181,8 @@
 	NSTimeInterval rollingFrequency;
 }
 
-- (id)init;
-- (id)initWithLogFileManager:(id <DDLogFileManager>)logFileManager;
+- (instancetype)init;
+- (instancetype)initWithLogFileManager:(id <DDLogFileManager>)logFileManager;
 
 /**
  * Log File Rolling:
@@ -285,7 +285,7 @@
 
 + (id)logFileWithPath:(NSString *)filePath;
 
-- (id)initWithFilePath:(NSString *)filePath;
+- (instancetype)initWithFilePath:(NSString *)filePath;
 
 - (void)reset;
 - (void)renameFile:(NSString *)newFileName;

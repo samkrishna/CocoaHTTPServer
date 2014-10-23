@@ -18,31 +18,30 @@
 	CFHTTPMessageRef message;
 }
 
-- (id)initEmptyRequest;
+- (instancetype)initEmptyRequest;
 
-- (id)initRequestWithMethod:(NSString *)method URL:(NSURL *)url version:(NSString *)version;
+- (instancetype)initRequestWithMethod:(NSString *)method URL:(NSURL *)url version:(NSString *)version;
 
-- (id)initResponseWithStatusCode:(NSInteger)code description:(NSString *)description version:(NSString *)version;
+- (instancetype)initResponseWithStatusCode:(NSInteger)code description:(NSString *)description version:(NSString *)version;
 
 - (BOOL)appendData:(NSData *)data;
 
-- (BOOL)isHeaderComplete;
+@property (NS_NONATOMIC_IOSONLY, getter=isHeaderComplete, readonly) BOOL headerComplete;
 
-- (NSString *)version;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *version;
 
-- (NSString *)method;
-- (NSURL *)url;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *method;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *url;
 
-- (NSInteger)statusCode;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger statusCode;
 
-- (NSDictionary *)allHeaderFields;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSDictionary *allHeaderFields;
 - (NSString *)headerField:(NSString *)headerField;
 
 - (void)setHeaderField:(NSString *)headerField value:(NSString *)headerFieldValue;
 
-- (NSData *)messageData;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSData *messageData;
 
-- (NSData *)body;
-- (void)setBody:(NSData *)body;
+@property (NS_NONATOMIC_IOSONLY, copy) NSData *body;
 
 @end

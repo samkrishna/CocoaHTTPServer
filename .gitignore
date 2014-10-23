@@ -4,3 +4,5 @@
 *.mode2v3
 xcuserdata
 *~
+
+Samples/SimpleFileUploadServer/SimpleFileUploadServer.xcodeproj/project.xcworkspace/xcshareddata/SimpleFileUploadServer.xccheckout

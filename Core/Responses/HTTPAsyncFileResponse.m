@@ -60,7 +60,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 
 @implementation HTTPAsyncFileResponse
 
-- (id)initWithFilePath:(NSString *)fpath forConnection:(HTTPConnection *)parent
+- (instancetype)initWithFilePath:(NSString *)fpath forConnection:(HTTPConnection *)parent
 {
 	if ((self = [super init]))
 	{
@@ -85,7 +85,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 			return nil;
 		}
 		
-		fileLength = (UInt64)[[fileAttributes objectForKey:NSFileSize] unsignedLongLongValue];
+		fileLength = (UInt64)[fileAttributes[NSFileSize] unsignedLongLongValue];
 		fileOffset = 0;
 		
 		aborted = NO;
