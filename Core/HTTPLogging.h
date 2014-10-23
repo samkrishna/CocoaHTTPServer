@@ -46,8 +46,6 @@
  * This means you can pass it multiple variables just like NSLog.
 **/
 
-#import "DDLog.h"
-
 // Define logging context for every log message coming from the HTTP server.
 // The logging context can be extracted from the DDLogMessage from within the logging framework,
 // which gives loggers, formatters, and filters the ability to optionally process them differently.
@@ -96,7 +94,7 @@
 #define HTTP_LOG_ASYNC_TRACE   (YES && HTTP_LOG_ASYNC_ENABLED)
 
 // Define logging primitives.
-
+#define LOG_OBJC_MAYBE(async, lvl, flg, ctx, frmt, ...) {}
 #define HTTPLogError(frmt, ...)    LOG_OBJC_MAYBE(HTTP_LOG_ASYNC_ERROR,   httpLogLevel, HTTP_LOG_FLAG_ERROR,  \
                                                   HTTP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
 
@@ -114,23 +112,3 @@
 
 #define HTTPLogTrace2(frmt, ...)   LOG_OBJC_MAYBE(HTTP_LOG_ASYNC_TRACE,   httpLogLevel, HTTP_LOG_FLAG_TRACE, \
                                                   HTTP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-
-
-#define HTTPLogCError(frmt, ...)      LOG_C_MAYBE(HTTP_LOG_ASYNC_ERROR,   httpLogLevel, HTTP_LOG_FLAG_ERROR,   \
-                                                  HTTP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-
-#define HTTPLogCWarn(frmt, ...)       LOG_C_MAYBE(HTTP_LOG_ASYNC_WARN,    httpLogLevel, HTTP_LOG_FLAG_WARN,    \
-                                                  HTTP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-
-#define HTTPLogCInfo(frmt, ...)       LOG_C_MAYBE(HTTP_LOG_ASYNC_INFO,    httpLogLevel, HTTP_LOG_FLAG_INFO,    \
-                                                  HTTP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-
-#define HTTPLogCVerbose(frmt, ...)    LOG_C_MAYBE(HTTP_LOG_ASYNC_VERBOSE, httpLogLevel, HTTP_LOG_FLAG_VERBOSE, \
-                                                  HTTP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-
-#define HTTPLogCTrace()               LOG_C_MAYBE(HTTP_LOG_ASYNC_TRACE,   httpLogLevel, HTTP_LOG_FLAG_TRACE, \
-                                                  HTTP_LOG_CONTEXT, @"%@[%p]: %@", THIS_FILE, self, __FUNCTION__)
-
-#define HTTPLogCTrace2(frmt, ...)     LOG_C_MAYBE(HTTP_LOG_ASYNC_TRACE,   httpLogLevel, HTTP_LOG_FLAG_TRACE, \
-                                                  HTTP_LOG_CONTEXT, frmt, ##__VA_ARGS__)
-

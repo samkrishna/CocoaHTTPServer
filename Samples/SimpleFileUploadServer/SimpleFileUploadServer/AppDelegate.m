@@ -1,20 +1,12 @@
 #import "AppDelegate.h"
 #import "HTTPServer.h"
-#import "DDLog.h"
-#import "DDTTYLogger.h"
 #import "MyHTTPConnection.h"
-// Log levels: off, error, warn, info, verbose
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-	// Configure our logging framework.
-	// To keep things simple and fast, we're just going to log to the Xcode console.
-	[DDLog addLogger:[DDTTYLogger sharedInstance]];
-	
+{	
 	// Initalize our http server
 	httpServer = [[HTTPServer alloc] init];
 	
@@ -29,17 +21,17 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	
 	// Serve files from the standard Sites folder
 	NSString *docRoot = [[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"web"] stringByDeletingLastPathComponent];
-	DDLogInfo(@"Setting document root: %@", docRoot);
+	NSLog(@"Setting document root: %@", docRoot);
 	
 	[httpServer setDocumentRoot:docRoot];
-	httpServer.port = 12346;
+	[httpServer setPort: 12346];
 	
 	[httpServer setConnectionClass:[MyHTTPConnection class]];
 	
 	NSError *error = nil;
 	if(![httpServer start:&error])
 	{
-		DDLogError(@"Error starting HTTP Server: %@", error);
+		NSLog(@"Error starting HTTP Server: %@", error);
 	}
 }
 
