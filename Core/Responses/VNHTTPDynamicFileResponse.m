@@ -1,22 +1,20 @@
-#import "HTTPDynamicFileResponse.h"
-#import "HTTPConnection.h"
+#import "VNHTTPDynamicFileResponse.h"
+#import "VNHTTPConnection.h"
 #import "HTTPLogging.h"
+#import "HTTPBase.h"
 
-#if ! __has_feature(objc_arc)
-#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+@interface VNHTTPDynamicFileResponse ()
+{
+	NSData *separator;
+	NSDictionary *replacementDict;
+}
 
-// Log levels : off, error, warn, info, verbose
-// Other flags: trace
-static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
+@end
 
-#define NULL_FD  -1
-
-
-@implementation HTTPDynamicFileResponse
+@implementation VNHTTPDynamicFileResponse
 
 - (instancetype)initWithFilePath:(NSString *)fpath
-         forConnection:(HTTPConnection *)parent
+         forConnection:(VNHTTPConnection *)parent
              separator:(NSString *)separatorStr
  replacementDictionary:(NSDictionary *)dict
 {
@@ -280,13 +278,6 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 	}
 	
 	[connection responseHasAvailableData:self];
-}
-
-- (void)dealloc
-{
-	HTTPLogTrace();
-	
-	
 }
 
 @end

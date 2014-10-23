@@ -21,7 +21,7 @@ enum {
     contentTransferEncoding_quotedPrintable,    
 };
 
-@interface MultipartMessageHeader : NSObject {
+@interface VNMultipartMessageHeader : NSObject {
     NSMutableDictionary*                    fields;
     int                                     encoding;
     NSString*                               contentDispositionName;

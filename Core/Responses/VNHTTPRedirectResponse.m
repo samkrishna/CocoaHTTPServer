@@ -1,24 +1,20 @@
-#import "HTTPRedirectResponse.h"
+#import "VNHTTPRedirectResponse.h"
 #import "HTTPLogging.h"
 
-#if ! __has_feature(objc_arc)
-#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+@interface VNHTTPRedirectResponse ()
 
-// Log levels : off, error, warn, info, verbose
-// Other flags: trace
-static const int httpLogLevel = HTTP_LOG_LEVEL_OFF; // | HTTP_LOG_FLAG_TRACE;
+@property (nonatomic, copy) NSString *redirectPath;
 
+@end
 
-@implementation HTTPRedirectResponse
+@implementation VNHTTPRedirectResponse
 
 - (instancetype)initWithPath:(NSString *)path
 {
 	if ((self = [super init]))
 	{
 		HTTPLogTrace();
-		
-		redirectPath = [path copy];
+		[self setRedirectPath: path];
 	}
 	return self;
 }
@@ -54,7 +50,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_OFF; // | HTTP_LOG_FLAG_TRACE;
 {
 	HTTPLogTrace();
 	
-	return @{@"Location": redirectPath};
+	return @{@"Location": _redirectPath};
 }
 
 - (NSInteger)status
@@ -62,12 +58,6 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_OFF; // | HTTP_LOG_FLAG_TRACE;
 	HTTPLogTrace();
 	
 	return 302;
-}
-
-- (void)dealloc
-{
-	HTTPLogTrace();
-	
 }
 
 @end

@@ -1,43 +1,11 @@
-#import "HTTPServer.h"
+#import "VNHTTPServer.h"
 #import "GCDAsyncSocket.h"
-#import "HTTPConnection.h"
-#import "WebSocket.h"
+#import "VNHTTPConnection.h"
+#import "VNWebSocket.h"
 #import "HTTPLogging.h"
+#import "HTTPBase.h"
 
-#if ! __has_feature(objc_arc)
-#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
-
-// Does ARC support support GCD objects?
-// It does if the minimum deployment target is iOS 6+ or Mac OS X 8+
-
-#if TARGET_OS_IPHONE
-
-  // Compiling for iOS
-
-  #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000 // iOS 6.0 or later
-    #define NEEDS_DISPATCH_RETAIN_RELEASE 0
-  #else                                         // iOS 5.X or earlier
-    #define NEEDS_DISPATCH_RETAIN_RELEASE 1
-  #endif
-
-#else
-
-  // Compiling for Mac OS X
-
-  #if MAC_OS_X_VERSION_MIN_REQUIRED >= 1080     // Mac OS X 10.8 or later
-    #define NEEDS_DISPATCH_RETAIN_RELEASE 0
-  #else
-    #define NEEDS_DISPATCH_RETAIN_RELEASE 1     // Mac OS X 10.7 or earlier
-  #endif
-
-#endif
-
-// Log levels: off, error, warn, info, verbose
-// Other flags: trace
-static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
-
-@interface HTTPServer (PrivateAPI)
+@interface VNHTTPServer (PrivateAPI)
 
 - (void)unpublishBonjour;
 - (void)publishBonjour;
@@ -51,7 +19,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation HTTPServer
+@implementation VNHTTPServer
 
 /**
  * Standard Constructor.
@@ -69,7 +37,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 		
 		// Use default connection class of HTTPConnection
 		connectionQueue = dispatch_queue_create("HTTPConnection", NULL);
-		connectionClass = [HTTPConnection self];
+		connectionClass = [VNHTTPConnection self];
 		
 		// By default bind on all available interfaces, en1, wifi etc
 		interface = nil;
@@ -466,7 +434,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 		{
 			// Stop all HTTP connections the server owns
 			[connectionsLock lock];
-			for (HTTPConnection *connection in connections)
+			for (VNHTTPConnection *connection in connections)
 			{
 				[connection stop];
 			}
@@ -475,7 +443,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 			
 			// Stop all WebSocket connections the server owns
 			[webSocketsLock lock];
-			for (WebSocket *webSocket in webSockets)
+			for (VNWebSocket *webSocket in webSockets)
 			{
 				[webSocket stop];
 			}
@@ -496,7 +464,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 	return result;
 }
 
-- (void)addWebSocket:(WebSocket *)ws
+- (void)addWebSocket:(VNWebSocket *)ws
 {
 	[webSocketsLock lock];
 	
@@ -542,7 +510,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 #pragma mark Incoming Connections
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (HTTPConfig *)config
+- (VNHTTPConfiguration *)config
 {
 	// Override me if you want to provide a custom config to the new connection.
 	// 
@@ -555,12 +523,12 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 	// Try the apache benchmark tool (already installed on your Mac):
 	// $  ab -n 1000 -c 1 http://localhost:<port>/some_path.html
 	
-	return [[HTTPConfig alloc] initWithServer:self documentRoot:documentRoot queue:connectionQueue];
+	return [[VNHTTPConfiguration alloc] initWithServer:self documentRoot:documentRoot queue:connectionQueue];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
 {
-	HTTPConnection *newConnection = (HTTPConnection *)[[connectionClass alloc] initWithAsyncSocket:newSocket
+	VNHTTPConnection *newConnection = (VNHTTPConnection *)[[connectionClass alloc] initWithAsyncSocket:newSocket
 	                                                                                 configuration:[self config]];
 	[connectionsLock lock];
 	[connections addObject:newConnection];

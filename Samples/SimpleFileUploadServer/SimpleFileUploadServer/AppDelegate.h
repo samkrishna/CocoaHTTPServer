@@ -1,10 +1,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class HTTPServer;
+@class VNHTTPServer;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
-   	HTTPServer *httpServer;
+   	VNHTTPServer *httpServer;
 }
 
 

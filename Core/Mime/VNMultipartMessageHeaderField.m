@@ -1,16 +1,6 @@
 
-#import "MultipartMessageHeaderField.h"
+#import "VNMultipartMessageHeaderField.h"
 #import "HTTPLogging.h"
-
-//-----------------------------------------------------------------
-#pragma mark log level
-
-#ifdef DEBUG
-static const int httpLogLevel = HTTP_LOG_LEVEL_WARN;
-#else
-static const int httpLogLevel = HTTP_LOG_LEVEL_WARN;
-#endif
-
 
 // helpers
 int findChar(const char* str, NSUInteger length, char c);
@@ -21,7 +11,7 @@ NSString* extractParamValue(const char* bytes, NSUInteger length, NSStringEncodi
 //-----------------------------------------------------------------
 
 
-@interface MultipartMessageHeaderField (private)
+@interface VNMultipartMessageHeaderField (private)
 -(BOOL) parseHeaderValueBytes:(char*) bytes length:(NSUInteger) length encoding:(NSStringEncoding) encoding;
 @end
 
@@ -30,7 +20,7 @@ NSString* extractParamValue(const char* bytes, NSUInteger length, NSStringEncodi
 // implementation MultipartMessageHeaderField
 //-----------------------------------------------------------------
 
-@implementation MultipartMessageHeaderField
+@implementation VNMultipartMessageHeaderField
 @synthesize name,value,params;
 
 - (instancetype) initWithData:(NSData *)data contentEncoding:(NSStringEncoding)encoding {

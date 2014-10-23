@@ -1,38 +1,10 @@
-#import "WebSocket.h"
-#import "HTTPMessage.h"
+#import "VNWebSocket.h"
+#import "VNHTTPMessage.h"
 #import "GCDAsyncSocket.h"
 #import "DDNumber.h"
 #import "DDData.h"
 #import "HTTPLogging.h"
-
-#if ! __has_feature(objc_arc)
-#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
-
-// Does ARC support support GCD objects?
-// It does if the minimum deployment target is iOS 6+ or Mac OS X 8+
-
-#if TARGET_OS_IPHONE
-
-  // Compiling for iOS
-
-  #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000 // iOS 6.0 or later
-    #define NEEDS_DISPATCH_RETAIN_RELEASE 0
-  #else                                         // iOS 5.X or earlier
-    #define NEEDS_DISPATCH_RETAIN_RELEASE 1
-  #endif
-
-#else
-
-  // Compiling for Mac OS X
-
-  #if MAC_OS_X_VERSION_MIN_REQUIRED >= 1080     // Mac OS X 10.8 or later
-    #define NEEDS_DISPATCH_RETAIN_RELEASE 0
-  #else
-    #define NEEDS_DISPATCH_RETAIN_RELEASE 1     // Mac OS X 10.7 or earlier
-  #endif
-
-#endif
+#import "HTTPBase.h"
 
 // Log levels: off, error, warn, info, verbose
 // Other flags : trace
@@ -76,10 +48,23 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	return frame & 0x7F;
 }
 
-@interface WebSocket (PrivateAPI)
+@interface VNWebSocket ()
+{
+	dispatch_queue_t websocketQueue;
+	
+	VNHTTPMessage *request;
+	GCDAsyncSocket *asyncSocket;
+	
+	NSData *term;
+	
+	BOOL isStarted;
+	BOOL isOpen;
+	BOOL isVersion76;
+	
+	id __unsafe_unretained delegate;
+}
 
 - (void)readRequestBody;
-- (void)sendResponseBody;
 - (void)sendResponseHeaders;
 
 @end
@@ -88,7 +73,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation WebSocket
+@implementation VNWebSocket
 {
 	BOOL isRFC6455;
 	BOOL nextFrameMasked;
@@ -96,7 +81,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	NSData *maskingKey;
 }
 
-+ (BOOL)isWebSocketRequest:(HTTPMessage *)request
++ (BOOL)isWebSocketRequest:(VNHTTPMessage *)request
 {
 	// Request (Draft 75):
 	// 
@@ -133,7 +118,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	if (!upgradeHeaderValue || !connectionHeaderValue) {
 		isWebSocket = NO;
 	}
-	else if (![upgradeHeaderValue caseInsensitiveCompare:@"WebSocket"] == NSOrderedSame) {
+	else if (![upgradeHeaderValue caseInsensitiveCompare:@"VNWebSocket"] == NSOrderedSame) {
 		isWebSocket = NO;
 	}
 	else if ([connectionHeaderValue rangeOfString:@"Upgrade" options:NSCaseInsensitiveSearch].location == NSNotFound) {
@@ -145,7 +130,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	return isWebSocket;
 }
 
-+ (BOOL)isVersion76Request:(HTTPMessage *)request
++ (BOOL)isVersion76Request:(VNHTTPMessage *)request
 {
 	NSString *key1 = [request headerField:@"Sec-WebSocket-Key1"];
 	NSString *key2 = [request headerField:@"Sec-WebSocket-Key2"];
@@ -164,7 +149,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	return isVersion76;
 }
 
-+ (BOOL)isRFC6455Request:(HTTPMessage *)request
++ (BOOL)isRFC6455Request:(VNHTTPMessage *)request
 {
 	NSString *key = [request headerField:@"Sec-WebSocket-Key"];
 	BOOL isRFC6455 = (key != nil);
@@ -180,7 +165,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 
 @synthesize websocketQueue;
 
-- (instancetype)initWithRequest:(HTTPMessage *)aRequest socket:(GCDAsyncSocket *)socket
+- (instancetype)initWithRequest:(VNHTTPMessage *)aRequest socket:(GCDAsyncSocket *)socket
 {
 	HTTPLogTrace();
 	
@@ -401,11 +386,11 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	// 8jKS'y:G*Co,Wxa-
 
 	
-	HTTPMessage *wsResponse = [[HTTPMessage alloc] initResponseWithStatusCode:101
+	VNHTTPMessage *wsResponse = [[VNHTTPMessage alloc] initResponseWithStatusCode:101
 	                                                              description:@"Web Socket Protocol Handshake"
 	                                                                  version:HTTPVersion1_1];
 	
-	[wsResponse setHeaderField:@"Upgrade" value:@"WebSocket"];
+	[wsResponse setHeaderField:@"Upgrade" value:@"VNWebSocket"];
 	[wsResponse setHeaderField:@"Connection" value:@"Upgrade"];
 	
 	// Note: It appears that WebSocket-Origin and WebSocket-Location

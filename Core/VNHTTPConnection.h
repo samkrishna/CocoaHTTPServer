@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
 
 @class GCDAsyncSocket;
-@class HTTPMessage;
-@class HTTPServer;
-@class WebSocket;
-@protocol HTTPResponse;
+@class VNHTTPMessage;
+@class VNHTTPServer;
+@class VNWebSocket;
+@protocol VNHTTPResponse;
 
 
 #define HTTPConnectionDidDieNotification  @"HTTPConnectionDidDie"
@@ -13,17 +13,17 @@
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@interface HTTPConfig : NSObject
+@interface VNHTTPConfiguration : NSObject
 {
-	HTTPServer __unsafe_unretained *server;
+	VNHTTPServer __unsafe_unretained *server;
 	NSString __strong *documentRoot;
 	dispatch_queue_t queue;
 }
 
-- (instancetype)initWithServer:(HTTPServer *)server documentRoot:(NSString *)documentRoot;
-- (instancetype)initWithServer:(HTTPServer *)server documentRoot:(NSString *)documentRoot queue:(dispatch_queue_t)q;
+- (instancetype)initWithServer:(VNHTTPServer *)server documentRoot:(NSString *)documentRoot;
+- (instancetype)initWithServer:(VNHTTPServer *)server documentRoot:(NSString *)documentRoot queue:(dispatch_queue_t)q;
 
-@property (nonatomic, unsafe_unretained, readonly) HTTPServer *server;
+@property (nonatomic, unsafe_unretained, readonly) VNHTTPServer *server;
 @property (nonatomic, strong, readonly) NSString *documentRoot;
 @property (nonatomic, readonly) dispatch_queue_t queue;
 
@@ -33,15 +33,15 @@
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@interface HTTPConnection : NSObject
+@interface VNHTTPConnection : NSObject
 {
 	dispatch_queue_t connectionQueue;
 	GCDAsyncSocket *asyncSocket;
-	HTTPConfig *config;
+	VNHTTPConfiguration *config;
 	
 	BOOL started;
 	
-	HTTPMessage *request;
+	VNHTTPMessage *request;
 	unsigned int numHeaderLines;
 	
 	BOOL sentResponseHeaders;
@@ -49,7 +49,7 @@
 	NSString *nonce;
 	long lastNC;
 	
-	NSObject<HTTPResponse> *httpResponse;
+	NSObject<VNHTTPResponse> *httpResponse;
 	
 	NSMutableArray *ranges;
 	NSMutableArray *ranges_headers;
@@ -64,7 +64,7 @@
 	NSMutableArray *responseDataSizes;
 }
 
-- (instancetype)initWithAsyncSocket:(GCDAsyncSocket *)newSocket configuration:(HTTPConfig *)aConfig;
+- (instancetype)initWithAsyncSocket:(GCDAsyncSocket *)newSocket configuration:(VNHTTPConfiguration *)aConfig;
 
 - (void)start;
 - (void)stop;
@@ -90,8 +90,8 @@
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *directoryIndexFileNames;
 - (NSString *)filePathForURI:(NSString *)path;
 - (NSString *)filePathForURI:(NSString *)path allowDirectory:(BOOL)allowDirectory;
-- (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path;
-- (WebSocket *)webSocketForURI:(NSString *)path;
+- (NSObject<VNHTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path;
+- (VNWebSocket *)webSocketForURI:(NSString *)path;
 
 - (void)prepareForBodyWithSize:(UInt64)contentLength;
 - (void)processBodyData:(NSData *)postDataChunk;
@@ -103,8 +103,8 @@
 - (void)handleInvalidRequest:(NSData *)data;
 - (void)handleUnknownMethod:(NSString *)method;
 
-- (NSData *)preprocessResponse:(HTTPMessage *)response;
-- (NSData *)preprocessErrorResponse:(HTTPMessage *)response;
+- (NSData *)preprocessResponse:(VNHTTPMessage *)response;
+- (NSData *)preprocessErrorResponse:(VNHTTPMessage *)response;
 
 - (void)finishResponse;
 
@@ -113,7 +113,7 @@
 
 @end
 
-@interface HTTPConnection (AsynchronousHTTPResponse)
-- (void)responseHasAvailableData:(NSObject<HTTPResponse> *)sender;
-- (void)responseDidAbort:(NSObject<HTTPResponse> *)sender;
+@interface VNHTTPConnection (AsynchronousHTTPResponse)
+- (void)responseHasAvailableData:(NSObject<VNHTTPResponse> *)sender;
+- (void)responseDidAbort:(NSObject<VNHTTPResponse> *)sender;
 @end

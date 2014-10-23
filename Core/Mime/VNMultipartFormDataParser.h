@@ -1,5 +1,5 @@
 
-#import "MultipartMessageHeader.h"
+#import "VNMultipartMessageHeader.h"
 
 /* 
 Part one: http://tools.ietf.org/html/rfc2045 (Format of Internet Message Bodies)
@@ -13,7 +13,7 @@ Internet message format:  http://tools.ietf.org/html/rfc2822
 Multipart/form-data http://tools.ietf.org/html/rfc2388
 */
 
-@class MultipartFormDataParser;
+@class VNMultipartFormDataParser;
 
 //-----------------------------------------------------------------
 // protocol MultipartFormDataParser
@@ -21,21 +21,21 @@ Multipart/form-data http://tools.ietf.org/html/rfc2388
 
 @protocol MultipartFormDataParserDelegate <NSObject> 
 @optional
-- (void) processContent:(NSData*) data WithHeader:(MultipartMessageHeader*) header;
-- (void) processEndOfPartWithHeader:(MultipartMessageHeader*) header;
+- (void) processContent:(NSData*) data WithHeader:(VNMultipartMessageHeader*) header;
+- (void) processEndOfPartWithHeader:(VNMultipartMessageHeader*) header;
 - (void) processPreambleData:(NSData*) data;
 - (void) processEpilogueData:(NSData*) data;
-- (void) processStartOfPartWithHeader:(MultipartMessageHeader*) header;
+- (void) processStartOfPartWithHeader:(VNMultipartMessageHeader*) header;
 @end
 
 //-----------------------------------------------------------------
 // interface MultipartFormDataParser
 //-----------------------------------------------------------------
 
-@interface MultipartFormDataParser : NSObject {
+@interface VNMultipartFormDataParser : NSObject {
 NSMutableData*						pendingData;
     NSData*							boundaryData;
-    MultipartMessageHeader*			currentHeader;
+    VNMultipartMessageHeader*			currentHeader;
 
 	BOOL							waitingForCRLF;
 	BOOL							reachedEpilogue;

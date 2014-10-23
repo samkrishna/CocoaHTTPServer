@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 @class GCDAsyncSocket;
-@class WebSocket;
+@class VNWebSocket;
 
 #if TARGET_OS_IPHONE
   #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 40000 // iPhone 4.0
@@ -18,7 +18,7 @@
 #endif
 
 
-@interface HTTPServer : NSObject IMPLEMENTED_PROTOCOLS
+@interface VNHTTPServer : NSObject IMPLEMENTED_PROTOCOLS
 {
 	// Underlying asynchronous TCP/IP socket
 	dispatch_queue_t serverQueue;
@@ -185,7 +185,7 @@
 
 @property (NS_NONATOMIC_IOSONLY, getter=isRunning, readonly) BOOL running;
 
-- (void)addWebSocket:(WebSocket *)ws;
+- (void)addWebSocket:(VNWebSocket *)ws;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger numberOfHTTPConnections;
 @property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger numberOfWebSocketConnections;

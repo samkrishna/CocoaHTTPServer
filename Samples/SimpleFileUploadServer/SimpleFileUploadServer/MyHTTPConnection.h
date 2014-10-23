@@ -1,10 +1,10 @@
 
-#import "HTTPConnection.h"
+#import "VNHTTPConnection.h"
 
-@class MultipartFormDataParser;
+@class VNMultipartFormDataParser;
 
-@interface MyHTTPConnection : HTTPConnection  {
-    MultipartFormDataParser*        parser;
+@interface MyHTTPConnection : VNHTTPConnection  {
+    VNMultipartFormDataParser*        parser;
 	NSFileHandle*					storeFile;
 	
 	NSMutableArray*					uploadedFiles;

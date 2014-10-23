@@ -1,19 +1,14 @@
 
 #import "MyHTTPConnection.h"
-#import "HTTPMessage.h"
-#import "HTTPDataResponse.h"
+#import "VNHTTPMessage.h"
+#import "VNHTTPDataResponse.h"
 #import "DDNumber.h"
 #import "HTTPLogging.h"
 
-#import "MultipartFormDataParser.h"
-#import "MultipartMessageHeaderField.h"
-#import "HTTPDynamicFileResponse.h"
-#import "HTTPFileResponse.h"
-
-// Log levels : off, error, warn, info, verbose
-// Other flags: trace
-static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE;
-
+#import "VNMultipartFormDataParser.h"
+#import "VNMultipartMessageHeaderField.h"
+#import "VNHTTPDynamicFileResponse.h"
+#import "VNHTTPFileResponse.h"
 
 /**
  * All we have to do is override appropriate methods in HTTPConnection.
@@ -84,7 +79,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	return [super expectsRequestBodyFromMethod:method atPath:path];
 }
 
-- (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
+- (NSObject<VNHTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
 	HTTPLogTrace();
 	
@@ -101,11 +96,11 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 		NSString* templatePath = [[config documentRoot] stringByAppendingPathComponent:@"upload.html"];
 		NSDictionary* replacementDict = @{@"MyFiles": filesStr};
 		// use dynamic file response to apply our links to response template
-		return [[HTTPDynamicFileResponse alloc] initWithFilePath:templatePath forConnection:self separator:@"%" replacementDictionary:replacementDict];
+		return [[VNHTTPDynamicFileResponse alloc] initWithFilePath:templatePath forConnection:self separator:@"%" replacementDictionary:replacementDict];
 	}
 	if( [method isEqualToString:@"GET"] && [path hasPrefix:@"/upload/"] ) {
 		// let download the uploaded files
-		return [[HTTPFileResponse alloc] initWithFilePath: [[config documentRoot] stringByAppendingString:path] forConnection:self];
+		return [[VNHTTPFileResponse alloc] initWithFilePath: [[config documentRoot] stringByAppendingString:path] forConnection:self];
 	}
 	
 	return [super httpResponseForMethod:method URI:path];
@@ -117,7 +112,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	
 	// set up mime parser
     NSString* boundary = [request headerField:@"boundary"];
-    parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
+    parser = [[VNMultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
     parser.delegate = self;
 
 	uploadedFiles = [[NSMutableArray alloc] init];
@@ -136,11 +131,11 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 #pragma mark multipart form data parser delegate
 
 
-- (void) processStartOfPartWithHeader:(MultipartMessageHeader*) header {
+- (void) processStartOfPartWithHeader:(VNMultipartMessageHeader*) header {
 	// in this sample, we are not interested in parts, other then file parts.
 	// check content disposition to find out filename
 
-    MultipartMessageHeaderField* disposition = (header.fields)[@"Content-Disposition"];
+    VNMultipartMessageHeaderField* disposition = (header.fields)[@"Content-Disposition"];
 	NSString* filename = [(disposition.params)[@"filename"] lastPathComponent];
 
     if ( (nil == filename) || [filename isEqualToString: @""] ) {
@@ -163,7 +158,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 }
 
 
-- (void) processContent:(NSData*) data WithHeader:(MultipartMessageHeader*) header 
+- (void) processContent:(NSData*) data WithHeader:(VNMultipartMessageHeader*) header 
 {
 	// here we just write the output from parser to the file.
 	if( storeFile ) {
@@ -171,7 +166,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	}
 }
 
-- (void) processEndOfPartWithHeader:(MultipartMessageHeader*) header
+- (void) processEndOfPartWithHeader:(VNMultipartMessageHeader*) header
 {
 	// as the file part is over, we close the file.
 	[storeFile closeFile];

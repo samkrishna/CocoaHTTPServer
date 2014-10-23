@@ -2,7 +2,7 @@
 #import "HTTPResponse.h"
 
 
-@interface HTTPDataResponse : NSObject <HTTPResponse>
+@interface VNHTTPDataResponse : NSObject <VNHTTPResponse>
 {
 	NSUInteger offset;
 	NSData *data;

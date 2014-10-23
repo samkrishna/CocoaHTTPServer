@@ -1,24 +1,30 @@
-#import "HTTPFileResponse.h"
-#import "HTTPConnection.h"
+#import "VNHTTPFileResponse.h"
+#import "VNHTTPConnection.h"
 #import "HTTPLogging.h"
+#import "HTTPBase.h"
 
 #import <unistd.h>
 #import <fcntl.h>
 
-#if ! __has_feature(objc_arc)
-#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+@interface VNHTTPFileResponse ()
+{
+	VNHTTPConnection *connection;
+	
+	NSString *filePath;
+	UInt64 fileLength;
+	UInt64 fileOffset;
+	
+	BOOL aborted;
+	
+	int fileFD;
+	void *buffer;
+	NSUInteger bufferSize;
+}
+@end
 
-// Log levels : off, error, warn, info, verbose
-// Other flags: trace
-static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
+@implementation VNHTTPFileResponse
 
-#define NULL_FD  -1
-
-
-@implementation HTTPFileResponse
-
-- (instancetype)initWithFilePath:(NSString *)fpath forConnection:(HTTPConnection *)parent
+- (instancetype)initWithFilePath:(NSString *)fpath forConnection:(VNHTTPConnection *)parent
 {
 	if((self = [super init]))
 	{

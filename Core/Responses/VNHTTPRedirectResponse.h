@@ -2,10 +2,7 @@
 #import "HTTPResponse.h"
 
 
-@interface HTTPRedirectResponse : NSObject <HTTPResponse>
-{
-	NSString *redirectPath;
-}
+@interface VNHTTPRedirectResponse : NSObject <VNHTTPResponse>
 
 - (instancetype)initWithPath:(NSString *)redirectPath;
 
