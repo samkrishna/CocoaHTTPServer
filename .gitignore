@@ -8,3 +8,5 @@ xcuserdata
 Samples/SimpleFileUploadServer/SimpleFileUploadServer.xcodeproj/project.xcworkspace/xcshareddata/SimpleFileUploadServer.xccheckout
 
 *.xccheckout
+
+Samples/VNWebService/VNWebServiceApp.xcodeproj/project.xcworkspace/

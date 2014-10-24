@@ -170,7 +170,6 @@
 		60175B3519F9CD3900F83CFF /* VNHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPServer.m; sourceTree = "<group>"; };
 		60175B3619F9CD3900F83CFF /* VNWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNWebSocket.h; sourceTree = "<group>"; };
 		60175B3719F9CD3900F83CFF /* VNWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNWebSocket.m; sourceTree = "<group>"; };
-		60175B3A19F9CD3900F83CFF /* About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = About.txt; sourceTree = "<group>"; };
 		60175B3B19F9CD3900F83CFF /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		60175B7519F9CD5F00F83CFF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -352,7 +351,6 @@
 		60175B3919F9CD3900F83CFF /* CocoaAsyncSocket */ = {
 			isa = PBXGroup;
 			children = (
-				60175B3A19F9CD3900F83CFF /* About.txt */,
 				60175B3B19F9CD3900F83CFF /* GCDAsyncSocket.h */,
 				60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */,
 			);
@@ -803,6 +801,7 @@
 				60175AD119F9CCCF00F83CFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60175AE719F9CCEA00F83CFF /* Build configuration list for PBXNativeTarget "libVNWebService" */ = {
 			isa = XCConfigurationList;
@@ -811,6 +810,7 @@
 				60175AE919F9CCEA00F83CFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60175B0A19F9CD1F00F83CFF /* Build configuration list for PBXNativeTarget "VNWebService" */ = {
 			isa = XCConfigurationList;
@@ -819,6 +819,7 @@
 				60175B0C19F9CD1F00F83CFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

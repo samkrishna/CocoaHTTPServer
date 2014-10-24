@@ -40,7 +40,7 @@
     
     // Start the server (and check for problems)
     
-    NSError *error;
+    NSError *error = nil;
     if([_httpServer start:&error])
     {
         NSLog(@"Started HTTP Server on port %hu", [_httpServer listeningPort]);
