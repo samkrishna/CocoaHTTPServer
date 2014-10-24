@@ -1,11 +1,6 @@
 #import "iPhoneHTTPServerAppDelegate.h"
 #import "iPhoneHTTPServerViewController.h"
-#import "HTTPServer.h"
-#import "DDLog.h"
-#import "DDTTYLogger.h"
-
-// Log levels: off, error, warn, info, verbose
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#import "VNHTTPServer.h"
 
 
 @implementation iPhoneHTTPServerAppDelegate
@@ -15,12 +10,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	// Configure our logging framework.
-	// To keep things simple and fast, we're just going to log to the Xcode console.
-	[DDLog addLogger:[DDTTYLogger sharedInstance]];
-	
 	// Create server using our custom MyHTTPServer class
-	httpServer = [[HTTPServer alloc] init];
+	httpServer = [[VNHTTPServer alloc] init];
 	
 	// Tell the server to broadcast its presence via Bonjour.
 	// This allows browsers such as Safari to automatically discover our service.
@@ -33,7 +24,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	
 	// Serve files from our embedded Web folder
 	NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Web"];
-	DDLogInfo(@"Setting document root: %@", webPath);
+	NSLog(@"Setting document root: %@", webPath);
 	
 	[httpServer setDocumentRoot:webPath];
 	
@@ -42,11 +33,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	NSError *error;
 	if([httpServer start:&error])
 	{
-		DDLogInfo(@"Started HTTP Server on port %hu", [httpServer listeningPort]);
+		NSLog(@"Started HTTP Server on port %hu", [httpServer listeningPort]);
 	}
 	else
 	{
-		DDLogError(@"Error starting HTTP Server: %@", error);
+		NSLog(@"Error starting HTTP Server: %@", error);
 	}
 	
     // Add the view controller's view to the window and display.

@@ -3,10 +3,6 @@
 
 
 @interface VNHTTPDataResponse : NSObject <VNHTTPResponse>
-{
-	NSUInteger offset;
-	NSData *data;
-}
 
 - (instancetype)initWithData:(NSData *)data;
 

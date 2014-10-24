@@ -1,0 +1,826 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		60175AB219F9CCCF00F83CFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175AB119F9CCCF00F83CFF /* main.m */; };
+		60175AB519F9CCCF00F83CFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175AB419F9CCCF00F83CFF /* AppDelegate.m */; };
+		60175AB819F9CCCF00F83CFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175AB719F9CCCF00F83CFF /* ViewController.m */; };
+		60175ABB19F9CCCF00F83CFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60175AB919F9CCCF00F83CFF /* Main.storyboard */; };
+		60175ABD19F9CCCF00F83CFF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60175ABC19F9CCCF00F83CFF /* Images.xcassets */; };
+		60175AC019F9CCCF00F83CFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60175ABE19F9CCCF00F83CFF /* LaunchScreen.xib */; };
+		60175AF719F9CD1F00F83CFF /* VNWebService.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175AF619F9CD1F00F83CFF /* VNWebService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60175B0619F9CD1F00F83CFF /* VNWebService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60175AF219F9CD1F00F83CFF /* VNWebService.framework */; };
+		60175B0719F9CD1F00F83CFF /* VNWebService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60175AF219F9CD1F00F83CFF /* VNWebService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		60175B3D19F9CD3900F83CFF /* DDData.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1319F9CD3900F83CFF /* DDData.h */; };
+		60175B3E19F9CD3900F83CFF /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1419F9CD3900F83CFF /* DDData.m */; };
+		60175B3F19F9CD3900F83CFF /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1419F9CD3900F83CFF /* DDData.m */; };
+		60175B4019F9CD3900F83CFF /* DDNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1519F9CD3900F83CFF /* DDNumber.h */; };
+		60175B4119F9CD3900F83CFF /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1619F9CD3900F83CFF /* DDNumber.m */; };
+		60175B4219F9CD3900F83CFF /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1619F9CD3900F83CFF /* DDNumber.m */; };
+		60175B4319F9CD3900F83CFF /* DDRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1719F9CD3900F83CFF /* DDRange.h */; };
+		60175B4419F9CD3900F83CFF /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1819F9CD3900F83CFF /* DDRange.m */; };
+		60175B4519F9CD3900F83CFF /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1819F9CD3900F83CFF /* DDRange.m */; };
+		60175B4619F9CD3900F83CFF /* HTTPBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1919F9CD3900F83CFF /* HTTPBase.h */; };
+		60175B4719F9CD3900F83CFF /* HTTPLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1A19F9CD3900F83CFF /* HTTPLogging.h */; };
+		60175B4819F9CD3900F83CFF /* HTTPResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1B19F9CD3900F83CFF /* HTTPResponse.h */; };
+		60175B4919F9CD3900F83CFF /* VNMultipartFormDataParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1D19F9CD3900F83CFF /* VNMultipartFormDataParser.h */; };
+		60175B4A19F9CD3900F83CFF /* VNMultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1E19F9CD3900F83CFF /* VNMultipartFormDataParser.m */; };
+		60175B4B19F9CD3900F83CFF /* VNMultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1E19F9CD3900F83CFF /* VNMultipartFormDataParser.m */; };
+		60175B4C19F9CD3900F83CFF /* VNMultipartMessageHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1F19F9CD3900F83CFF /* VNMultipartMessageHeader.h */; };
+		60175B4D19F9CD3900F83CFF /* VNMultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2019F9CD3900F83CFF /* VNMultipartMessageHeader.m */; };
+		60175B4E19F9CD3900F83CFF /* VNMultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2019F9CD3900F83CFF /* VNMultipartMessageHeader.m */; };
+		60175B4F19F9CD3900F83CFF /* VNMultipartMessageHeaderField.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2119F9CD3900F83CFF /* VNMultipartMessageHeaderField.h */; };
+		60175B5019F9CD3900F83CFF /* VNMultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2219F9CD3900F83CFF /* VNMultipartMessageHeaderField.m */; };
+		60175B5119F9CD3900F83CFF /* VNMultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2219F9CD3900F83CFF /* VNMultipartMessageHeaderField.m */; };
+		60175B5219F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h */; };
+		60175B5319F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2519F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m */; };
+		60175B5419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2519F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m */; };
+		60175B5519F9CD3900F83CFF /* VNHTTPDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2619F9CD3900F83CFF /* VNHTTPDataResponse.h */; };
+		60175B5619F9CD3900F83CFF /* VNHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2719F9CD3900F83CFF /* VNHTTPDataResponse.m */; };
+		60175B5719F9CD3900F83CFF /* VNHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2719F9CD3900F83CFF /* VNHTTPDataResponse.m */; };
+		60175B5819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h */; };
+		60175B5919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m */; };
+		60175B5A19F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m */; };
+		60175B5B19F9CD3900F83CFF /* VNHTTPFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2A19F9CD3900F83CFF /* VNHTTPFileResponse.h */; };
+		60175B5C19F9CD3900F83CFF /* VNHTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2B19F9CD3900F83CFF /* VNHTTPFileResponse.m */; };
+		60175B5D19F9CD3900F83CFF /* VNHTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2B19F9CD3900F83CFF /* VNHTTPFileResponse.m */; };
+		60175B5E19F9CD3900F83CFF /* VNHTTPRedirectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2C19F9CD3900F83CFF /* VNHTTPRedirectResponse.h */; };
+		60175B5F19F9CD3900F83CFF /* VNHTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2D19F9CD3900F83CFF /* VNHTTPRedirectResponse.m */; };
+		60175B6019F9CD3900F83CFF /* VNHTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2D19F9CD3900F83CFF /* VNHTTPRedirectResponse.m */; };
+		60175B6119F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2E19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h */; };
+		60175B6219F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2F19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m */; };
+		60175B6319F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2F19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m */; };
+		60175B6419F9CD3900F83CFF /* VNHTTPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3019F9CD3900F83CFF /* VNHTTPConnection.h */; };
+		60175B6519F9CD3900F83CFF /* VNHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3119F9CD3900F83CFF /* VNHTTPConnection.m */; };
+		60175B6619F9CD3900F83CFF /* VNHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3119F9CD3900F83CFF /* VNHTTPConnection.m */; };
+		60175B6719F9CD3900F83CFF /* VNHTTPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3219F9CD3900F83CFF /* VNHTTPMessage.h */; };
+		60175B6819F9CD3900F83CFF /* VNHTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3319F9CD3900F83CFF /* VNHTTPMessage.m */; };
+		60175B6919F9CD3900F83CFF /* VNHTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3319F9CD3900F83CFF /* VNHTTPMessage.m */; };
+		60175B6A19F9CD3900F83CFF /* VNHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3419F9CD3900F83CFF /* VNHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60175B6B19F9CD3900F83CFF /* VNHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3519F9CD3900F83CFF /* VNHTTPServer.m */; };
+		60175B6C19F9CD3900F83CFF /* VNHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3519F9CD3900F83CFF /* VNHTTPServer.m */; };
+		60175B6D19F9CD3900F83CFF /* VNWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3619F9CD3900F83CFF /* VNWebSocket.h */; };
+		60175B6E19F9CD3900F83CFF /* VNWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3719F9CD3900F83CFF /* VNWebSocket.m */; };
+		60175B6F19F9CD3900F83CFF /* VNWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3719F9CD3900F83CFF /* VNWebSocket.m */; };
+		60175B7119F9CD3900F83CFF /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3B19F9CD3900F83CFF /* GCDAsyncSocket.h */; };
+		60175B7219F9CD3900F83CFF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */; };
+		60175B7319F9CD3900F83CFF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */; };
+		60175B7619F9CD5F00F83CFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60175B7519F9CD5F00F83CFF /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		60175B0419F9CD1F00F83CFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60175AA419F9CCCF00F83CFF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60175AF119F9CD1F00F83CFF;
+			remoteInfo = VNWebService;
+		};
+		60175B0819F9CD1F00F83CFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60175AA419F9CCCF00F83CFF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60175AF119F9CD1F00F83CFF;
+			remoteInfo = VNWebService;
+		};
+		60175B7719F9CD6F00F83CFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60175AA419F9CCCF00F83CFF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60175AD819F9CCE900F83CFF;
+			remoteInfo = libVNWebService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		60175AD719F9CCE900F83CFF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60175B0D19F9CD1F00F83CFF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				60175B0719F9CD1F00F83CFF /* VNWebService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		60175AAC19F9CCCF00F83CFF /* VNWebServiceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNWebServiceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60175AB019F9CCCF00F83CFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60175AB119F9CCCF00F83CFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		60175AB319F9CCCF00F83CFF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		60175AB419F9CCCF00F83CFF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		60175AB619F9CCCF00F83CFF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		60175AB719F9CCCF00F83CFF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		60175ABA19F9CCCF00F83CFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		60175ABC19F9CCCF00F83CFF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		60175ABF19F9CCCF00F83CFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		60175AD919F9CCE900F83CFF /* liblibVNWebServiceApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibVNWebServiceApp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60175AF219F9CD1F00F83CFF /* VNWebService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VNWebService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60175AF519F9CD1F00F83CFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60175AF619F9CD1F00F83CFF /* VNWebService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNWebService.h; sourceTree = "<group>"; };
+		60175B1319F9CD3900F83CFF /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
+		60175B1419F9CD3900F83CFF /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
+		60175B1519F9CD3900F83CFF /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
+		60175B1619F9CD3900F83CFF /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNumber.m; sourceTree = "<group>"; };
+		60175B1719F9CD3900F83CFF /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRange.h; sourceTree = "<group>"; };
+		60175B1819F9CD3900F83CFF /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRange.m; sourceTree = "<group>"; };
+		60175B1919F9CD3900F83CFF /* HTTPBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPBase.h; sourceTree = "<group>"; };
+		60175B1A19F9CD3900F83CFF /* HTTPLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPLogging.h; sourceTree = "<group>"; };
+		60175B1B19F9CD3900F83CFF /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponse.h; sourceTree = "<group>"; };
+		60175B1D19F9CD3900F83CFF /* VNMultipartFormDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNMultipartFormDataParser.h; sourceTree = "<group>"; };
+		60175B1E19F9CD3900F83CFF /* VNMultipartFormDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNMultipartFormDataParser.m; sourceTree = "<group>"; };
+		60175B1F19F9CD3900F83CFF /* VNMultipartMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNMultipartMessageHeader.h; sourceTree = "<group>"; };
+		60175B2019F9CD3900F83CFF /* VNMultipartMessageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNMultipartMessageHeader.m; sourceTree = "<group>"; };
+		60175B2119F9CD3900F83CFF /* VNMultipartMessageHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNMultipartMessageHeaderField.h; sourceTree = "<group>"; };
+		60175B2219F9CD3900F83CFF /* VNMultipartMessageHeaderField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNMultipartMessageHeaderField.m; sourceTree = "<group>"; };
+		60175B2419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPAsyncFileResponse.h; sourceTree = "<group>"; };
+		60175B2519F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPAsyncFileResponse.m; sourceTree = "<group>"; };
+		60175B2619F9CD3900F83CFF /* VNHTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPDataResponse.h; sourceTree = "<group>"; };
+		60175B2719F9CD3900F83CFF /* VNHTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPDataResponse.m; sourceTree = "<group>"; };
+		60175B2819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPDynamicFileResponse.h; sourceTree = "<group>"; };
+		60175B2919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPDynamicFileResponse.m; sourceTree = "<group>"; };
+		60175B2A19F9CD3900F83CFF /* VNHTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPFileResponse.h; sourceTree = "<group>"; };
+		60175B2B19F9CD3900F83CFF /* VNHTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPFileResponse.m; sourceTree = "<group>"; };
+		60175B2C19F9CD3900F83CFF /* VNHTTPRedirectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPRedirectResponse.h; sourceTree = "<group>"; };
+		60175B2D19F9CD3900F83CFF /* VNHTTPRedirectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPRedirectResponse.m; sourceTree = "<group>"; };
+		60175B2E19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		60175B2F19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		60175B3019F9CD3900F83CFF /* VNHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPConnection.h; sourceTree = "<group>"; };
+		60175B3119F9CD3900F83CFF /* VNHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPConnection.m; sourceTree = "<group>"; };
+		60175B3219F9CD3900F83CFF /* VNHTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPMessage.h; sourceTree = "<group>"; };
+		60175B3319F9CD3900F83CFF /* VNHTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPMessage.m; sourceTree = "<group>"; };
+		60175B3419F9CD3900F83CFF /* VNHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPServer.h; sourceTree = "<group>"; };
+		60175B3519F9CD3900F83CFF /* VNHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPServer.m; sourceTree = "<group>"; };
+		60175B3619F9CD3900F83CFF /* VNWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNWebSocket.h; sourceTree = "<group>"; };
+		60175B3719F9CD3900F83CFF /* VNWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNWebSocket.m; sourceTree = "<group>"; };
+		60175B3A19F9CD3900F83CFF /* About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = About.txt; sourceTree = "<group>"; };
+		60175B3B19F9CD3900F83CFF /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		60175B7519F9CD5F00F83CFF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		60175AA919F9CCCF00F83CFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60175B0619F9CD1F00F83CFF /* VNWebService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60175AD619F9CCE900F83CFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60175AEE19F9CD1F00F83CFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		60175AA319F9CCCF00F83CFF = {
+			isa = PBXGroup;
+			children = (
+				60175B7519F9CD5F00F83CFF /* Default-568h@2x.png */,
+				60175B7419F9CD3D00F83CFF /* Shared */,
+				60175AAE19F9CCCF00F83CFF /* VNWebServiceApp */,
+				60175ADA19F9CCE900F83CFF /* libVNWebService */,
+				60175AF319F9CD1F00F83CFF /* VNWebService */,
+				60175AAD19F9CCCF00F83CFF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		60175AAD19F9CCCF00F83CFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60175AAC19F9CCCF00F83CFF /* VNWebServiceApp.app */,
+				60175AD919F9CCE900F83CFF /* liblibVNWebServiceApp.a */,
+				60175AF219F9CD1F00F83CFF /* VNWebService.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		60175AAE19F9CCCF00F83CFF /* VNWebServiceApp */ = {
+			isa = PBXGroup;
+			children = (
+				60175AB319F9CCCF00F83CFF /* AppDelegate.h */,
+				60175AB419F9CCCF00F83CFF /* AppDelegate.m */,
+				60175AB619F9CCCF00F83CFF /* ViewController.h */,
+				60175AB719F9CCCF00F83CFF /* ViewController.m */,
+				60175AB919F9CCCF00F83CFF /* Main.storyboard */,
+				60175ABC19F9CCCF00F83CFF /* Images.xcassets */,
+				60175ABE19F9CCCF00F83CFF /* LaunchScreen.xib */,
+				60175AAF19F9CCCF00F83CFF /* Supporting Files */,
+			);
+			name = VNWebServiceApp;
+			path = VNWebService;
+			sourceTree = "<group>";
+		};
+		60175AAF19F9CCCF00F83CFF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				60175AB019F9CCCF00F83CFF /* Info.plist */,
+				60175AB119F9CCCF00F83CFF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		60175ADA19F9CCE900F83CFF /* libVNWebService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = libVNWebService;
+			sourceTree = "<group>";
+		};
+		60175AF319F9CD1F00F83CFF /* VNWebService */ = {
+			isa = PBXGroup;
+			children = (
+				60175AF619F9CD1F00F83CFF /* VNWebService.h */,
+				60175AF419F9CD1F00F83CFF /* Supporting Files */,
+			);
+			path = VNWebService;
+			sourceTree = "<group>";
+		};
+		60175AF419F9CD1F00F83CFF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				60175AF519F9CD1F00F83CFF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		60175B1119F9CD3900F83CFF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				60175B1219F9CD3900F83CFF /* Categories */,
+				60175B1919F9CD3900F83CFF /* HTTPBase.h */,
+				60175B1A19F9CD3900F83CFF /* HTTPLogging.h */,
+				60175B1B19F9CD3900F83CFF /* HTTPResponse.h */,
+				60175B1C19F9CD3900F83CFF /* Mime */,
+				60175B2319F9CD3900F83CFF /* Responses */,
+				60175B2E19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h */,
+				60175B2F19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m */,
+				60175B3019F9CD3900F83CFF /* VNHTTPConnection.h */,
+				60175B3119F9CD3900F83CFF /* VNHTTPConnection.m */,
+				60175B3219F9CD3900F83CFF /* VNHTTPMessage.h */,
+				60175B3319F9CD3900F83CFF /* VNHTTPMessage.m */,
+				60175B3419F9CD3900F83CFF /* VNHTTPServer.h */,
+				60175B3519F9CD3900F83CFF /* VNHTTPServer.m */,
+				60175B3619F9CD3900F83CFF /* VNWebSocket.h */,
+				60175B3719F9CD3900F83CFF /* VNWebSocket.m */,
+			);
+			name = Core;
+			path = ../../Core;
+			sourceTree = "<group>";
+		};
+		60175B1219F9CD3900F83CFF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				60175B1319F9CD3900F83CFF /* DDData.h */,
+				60175B1419F9CD3900F83CFF /* DDData.m */,
+				60175B1519F9CD3900F83CFF /* DDNumber.h */,
+				60175B1619F9CD3900F83CFF /* DDNumber.m */,
+				60175B1719F9CD3900F83CFF /* DDRange.h */,
+				60175B1819F9CD3900F83CFF /* DDRange.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		60175B1C19F9CD3900F83CFF /* Mime */ = {
+			isa = PBXGroup;
+			children = (
+				60175B1D19F9CD3900F83CFF /* VNMultipartFormDataParser.h */,
+				60175B1E19F9CD3900F83CFF /* VNMultipartFormDataParser.m */,
+				60175B1F19F9CD3900F83CFF /* VNMultipartMessageHeader.h */,
+				60175B2019F9CD3900F83CFF /* VNMultipartMessageHeader.m */,
+				60175B2119F9CD3900F83CFF /* VNMultipartMessageHeaderField.h */,
+				60175B2219F9CD3900F83CFF /* VNMultipartMessageHeaderField.m */,
+			);
+			path = Mime;
+			sourceTree = "<group>";
+		};
+		60175B2319F9CD3900F83CFF /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				60175B2419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h */,
+				60175B2519F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m */,
+				60175B2619F9CD3900F83CFF /* VNHTTPDataResponse.h */,
+				60175B2719F9CD3900F83CFF /* VNHTTPDataResponse.m */,
+				60175B2819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h */,
+				60175B2919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m */,
+				60175B2A19F9CD3900F83CFF /* VNHTTPFileResponse.h */,
+				60175B2B19F9CD3900F83CFF /* VNHTTPFileResponse.m */,
+				60175B2C19F9CD3900F83CFF /* VNHTTPRedirectResponse.h */,
+				60175B2D19F9CD3900F83CFF /* VNHTTPRedirectResponse.m */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		60175B3819F9CD3900F83CFF /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				60175B3919F9CD3900F83CFF /* CocoaAsyncSocket */,
+			);
+			name = Vendor;
+			path = ../../Vendor;
+			sourceTree = "<group>";
+		};
+		60175B3919F9CD3900F83CFF /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				60175B3A19F9CD3900F83CFF /* About.txt */,
+				60175B3B19F9CD3900F83CFF /* GCDAsyncSocket.h */,
+				60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		60175B7419F9CD3D00F83CFF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				60175B1119F9CD3900F83CFF /* Core */,
+				60175B3819F9CD3900F83CFF /* Vendor */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		60175AEF19F9CD1F00F83CFF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60175B6119F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h in Headers */,
+				60175B6A19F9CD3900F83CFF /* VNHTTPServer.h in Headers */,
+				60175B4619F9CD3900F83CFF /* HTTPBase.h in Headers */,
+				60175B5219F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h in Headers */,
+				60175B4319F9CD3900F83CFF /* DDRange.h in Headers */,
+				60175B4919F9CD3900F83CFF /* VNMultipartFormDataParser.h in Headers */,
+				60175B5E19F9CD3900F83CFF /* VNHTTPRedirectResponse.h in Headers */,
+				60175B3D19F9CD3900F83CFF /* DDData.h in Headers */,
+				60175B4C19F9CD3900F83CFF /* VNMultipartMessageHeader.h in Headers */,
+				60175B6719F9CD3900F83CFF /* VNHTTPMessage.h in Headers */,
+				60175B4F19F9CD3900F83CFF /* VNMultipartMessageHeaderField.h in Headers */,
+				60175B6D19F9CD3900F83CFF /* VNWebSocket.h in Headers */,
+				60175B7119F9CD3900F83CFF /* GCDAsyncSocket.h in Headers */,
+				60175B5B19F9CD3900F83CFF /* VNHTTPFileResponse.h in Headers */,
+				60175B5519F9CD3900F83CFF /* VNHTTPDataResponse.h in Headers */,
+				60175B4019F9CD3900F83CFF /* DDNumber.h in Headers */,
+				60175B6419F9CD3900F83CFF /* VNHTTPConnection.h in Headers */,
+				60175B4819F9CD3900F83CFF /* HTTPResponse.h in Headers */,
+				60175B4719F9CD3900F83CFF /* HTTPLogging.h in Headers */,
+				60175AF719F9CD1F00F83CFF /* VNWebService.h in Headers */,
+				60175B5819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		60175AAB19F9CCCF00F83CFF /* VNWebServiceApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60175ACF19F9CCCF00F83CFF /* Build configuration list for PBXNativeTarget "VNWebServiceApp" */;
+			buildPhases = (
+				60175AA819F9CCCF00F83CFF /* Sources */,
+				60175AA919F9CCCF00F83CFF /* Frameworks */,
+				60175AAA19F9CCCF00F83CFF /* Resources */,
+				60175B0D19F9CD1F00F83CFF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60175B7819F9CD6F00F83CFF /* PBXTargetDependency */,
+				60175B0519F9CD1F00F83CFF /* PBXTargetDependency */,
+				60175B0919F9CD1F00F83CFF /* PBXTargetDependency */,
+			);
+			name = VNWebServiceApp;
+			productName = VNWebService;
+			productReference = 60175AAC19F9CCCF00F83CFF /* VNWebServiceApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		60175AD819F9CCE900F83CFF /* libVNWebService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60175AE719F9CCEA00F83CFF /* Build configuration list for PBXNativeTarget "libVNWebService" */;
+			buildPhases = (
+				60175AD519F9CCE900F83CFF /* Sources */,
+				60175AD619F9CCE900F83CFF /* Frameworks */,
+				60175AD719F9CCE900F83CFF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libVNWebService;
+			productName = libVNWebService;
+			productReference = 60175AD919F9CCE900F83CFF /* liblibVNWebServiceApp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		60175AF119F9CD1F00F83CFF /* VNWebService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60175B0A19F9CD1F00F83CFF /* Build configuration list for PBXNativeTarget "VNWebService" */;
+			buildPhases = (
+				60175AED19F9CD1F00F83CFF /* Sources */,
+				60175AEE19F9CD1F00F83CFF /* Frameworks */,
+				60175AEF19F9CD1F00F83CFF /* Headers */,
+				60175AF019F9CD1F00F83CFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VNWebService;
+			productName = VNWebService;
+			productReference = 60175AF219F9CD1F00F83CFF /* VNWebService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60175AA419F9CCCF00F83CFF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Lei;
+				TargetAttributes = {
+					60175AAB19F9CCCF00F83CFF = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					60175AD819F9CCE900F83CFF = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					60175AF119F9CD1F00F83CFF = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 60175AA719F9CCCF00F83CFF /* Build configuration list for PBXProject "VNWebServiceApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 60175AA319F9CCCF00F83CFF;
+			productRefGroup = 60175AAD19F9CCCF00F83CFF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				60175AAB19F9CCCF00F83CFF /* VNWebServiceApp */,
+				60175AD819F9CCE900F83CFF /* libVNWebService */,
+				60175AF119F9CD1F00F83CFF /* VNWebService */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		60175AAA19F9CCCF00F83CFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60175ABB19F9CCCF00F83CFF /* Main.storyboard in Resources */,
+				60175B7619F9CD5F00F83CFF /* Default-568h@2x.png in Resources */,
+				60175AC019F9CCCF00F83CFF /* LaunchScreen.xib in Resources */,
+				60175ABD19F9CCCF00F83CFF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60175AF019F9CD1F00F83CFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		60175AA819F9CCCF00F83CFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60175AB819F9CCCF00F83CFF /* ViewController.m in Sources */,
+				60175AB519F9CCCF00F83CFF /* AppDelegate.m in Sources */,
+				60175AB219F9CCCF00F83CFF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60175AD519F9CCE900F83CFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60175B5919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m in Sources */,
+				60175B6E19F9CD3900F83CFF /* VNWebSocket.m in Sources */,
+				60175B6219F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m in Sources */,
+				60175B4419F9CD3900F83CFF /* DDRange.m in Sources */,
+				60175B6B19F9CD3900F83CFF /* VNHTTPServer.m in Sources */,
+				60175B7219F9CD3900F83CFF /* GCDAsyncSocket.m in Sources */,
+				60175B4A19F9CD3900F83CFF /* VNMultipartFormDataParser.m in Sources */,
+				60175B3E19F9CD3900F83CFF /* DDData.m in Sources */,
+				60175B5C19F9CD3900F83CFF /* VNHTTPFileResponse.m in Sources */,
+				60175B4119F9CD3900F83CFF /* DDNumber.m in Sources */,
+				60175B6819F9CD3900F83CFF /* VNHTTPMessage.m in Sources */,
+				60175B5319F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m in Sources */,
+				60175B6519F9CD3900F83CFF /* VNHTTPConnection.m in Sources */,
+				60175B5F19F9CD3900F83CFF /* VNHTTPRedirectResponse.m in Sources */,
+				60175B5019F9CD3900F83CFF /* VNMultipartMessageHeaderField.m in Sources */,
+				60175B4D19F9CD3900F83CFF /* VNMultipartMessageHeader.m in Sources */,
+				60175B5619F9CD3900F83CFF /* VNHTTPDataResponse.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60175AED19F9CD1F00F83CFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60175B5119F9CD3900F83CFF /* VNMultipartMessageHeaderField.m in Sources */,
+				60175B6319F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m in Sources */,
+				60175B4519F9CD3900F83CFF /* DDRange.m in Sources */,
+				60175B6F19F9CD3900F83CFF /* VNWebSocket.m in Sources */,
+				60175B6919F9CD3900F83CFF /* VNHTTPMessage.m in Sources */,
+				60175B7319F9CD3900F83CFF /* GCDAsyncSocket.m in Sources */,
+				60175B6019F9CD3900F83CFF /* VNHTTPRedirectResponse.m in Sources */,
+				60175B4219F9CD3900F83CFF /* DDNumber.m in Sources */,
+				60175B3F19F9CD3900F83CFF /* DDData.m in Sources */,
+				60175B5D19F9CD3900F83CFF /* VNHTTPFileResponse.m in Sources */,
+				60175B5719F9CD3900F83CFF /* VNHTTPDataResponse.m in Sources */,
+				60175B5A19F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m in Sources */,
+				60175B5419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m in Sources */,
+				60175B4B19F9CD3900F83CFF /* VNMultipartFormDataParser.m in Sources */,
+				60175B6619F9CD3900F83CFF /* VNHTTPConnection.m in Sources */,
+				60175B4E19F9CD3900F83CFF /* VNMultipartMessageHeader.m in Sources */,
+				60175B6C19F9CD3900F83CFF /* VNHTTPServer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		60175B0519F9CD1F00F83CFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60175AF119F9CD1F00F83CFF /* VNWebService */;
+			targetProxy = 60175B0419F9CD1F00F83CFF /* PBXContainerItemProxy */;
+		};
+		60175B0919F9CD1F00F83CFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60175AF119F9CD1F00F83CFF /* VNWebService */;
+			targetProxy = 60175B0819F9CD1F00F83CFF /* PBXContainerItemProxy */;
+		};
+		60175B7819F9CD6F00F83CFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60175AD819F9CCE900F83CFF /* libVNWebService */;
+			targetProxy = 60175B7719F9CD6F00F83CFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		60175AB919F9CCCF00F83CFF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60175ABA19F9CCCF00F83CFF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		60175ABE19F9CCCF00F83CFF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60175ABF19F9CCCF00F83CFF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		60175ACD19F9CCCF00F83CFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		60175ACE19F9CCCF00F83CFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60175AD019F9CCCF00F83CFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VNWebService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = VNWebServiceApp;
+			};
+			name = Debug;
+		};
+		60175AD119F9CCCF00F83CFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VNWebService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = VNWebServiceApp;
+			};
+			name = Release;
+		};
+		60175AE819F9CCEA00F83CFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = libVNWebServiceApp;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		60175AE919F9CCEA00F83CFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = libVNWebServiceApp;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		60175B0B19F9CD1F00F83CFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VNWebService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		60175B0C19F9CD1F00F83CFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = VNWebService/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		60175AA719F9CCCF00F83CFF /* Build configuration list for PBXProject "VNWebServiceApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60175ACD19F9CCCF00F83CFF /* Debug */,
+				60175ACE19F9CCCF00F83CFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60175ACF19F9CCCF00F83CFF /* Build configuration list for PBXNativeTarget "VNWebServiceApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60175AD019F9CCCF00F83CFF /* Debug */,
+				60175AD119F9CCCF00F83CFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		60175AE719F9CCEA00F83CFF /* Build configuration list for PBXNativeTarget "libVNWebService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60175AE819F9CCEA00F83CFF /* Debug */,
+				60175AE919F9CCEA00F83CFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		60175B0A19F9CD1F00F83CFF /* Build configuration list for PBXNativeTarget "VNWebService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60175B0B19F9CD1F00F83CFF /* Debug */,
+				60175B0C19F9CD1F00F83CFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 60175AA419F9CCCF00F83CFF /* Project object */;
+}

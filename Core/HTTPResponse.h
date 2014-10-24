@@ -13,8 +13,7 @@
  * The HTTP server supports range requests in order to allow things like
  * file download resumption and optimized streaming on mobile devices.
 **/
-- (UInt64)offset;
-- (void)setOffset:(UInt64)offset;
+@property (nonatomic) UInt64 offset;
 
 /**
  * Returns the data for the response.
