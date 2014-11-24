@@ -436,6 +436,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = SimpleWebSocketServer_Prefix.pch;
 				INFOPLIST_FILE = "SimpleWebSocketServer-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = SimpleWebSocketServer;
 			};
 			name = Debug;
@@ -445,6 +446,7 @@
 			buildSettings = {
 				GCC_PREFIX_HEADER = SimpleWebSocketServer_Prefix.pch;
 				INFOPLIST_FILE = "SimpleWebSocketServer-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = SimpleWebSocketServer;
 			};
 			name = Release;

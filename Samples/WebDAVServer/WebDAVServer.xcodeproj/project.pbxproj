@@ -438,6 +438,7 @@
 				GCC_PREFIX_HEADER = WebDAVServer_Prefix.pch;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = WebDAVServer;
 			};
 			name = Debug;
@@ -449,6 +450,7 @@
 				GCC_PREFIX_HEADER = WebDAVServer_Prefix.pch;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = WebDAVServer;
 			};
 			name = Release;
