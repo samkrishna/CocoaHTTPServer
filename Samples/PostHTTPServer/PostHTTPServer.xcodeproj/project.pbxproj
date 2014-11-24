@@ -58,6 +58,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* PostHTTPServer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostHTTPServer_Prefix.pch; sourceTree = "<group>"; };
+		6FC7A0731A22C74900DC1DB4 /* HTTPBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPBase.h; path = ../../Core/HTTPBase.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* PostHTTPServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostHTTPServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1128490ED6116D00FA818C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -208,6 +209,7 @@
 		DC11283F0ED6111800FA818C /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				6FC7A0731A22C74900DC1DB4 /* HTTPBase.h */,
 				DC372F53139DC40000A8407D /* HTTPLogging.h */,
 				DC372F4F139DC40000A8407D /* HTTPAuthenticationRequest.h */,
 				DC372F50139DC40000A8407D /* HTTPAuthenticationRequest.m */,
