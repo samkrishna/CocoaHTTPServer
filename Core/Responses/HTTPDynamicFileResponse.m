@@ -1,9 +1,9 @@
-#import "VNHTTPDynamicFileResponse.h"
-#import "VNHTTPConnection.h"
+#import "HTTPDynamicFileResponse.h"
+#import "HTTPConnection.h"
 #import "HTTPLogging.h"
 #import "HTTPBase.h"
 
-@interface VNHTTPDynamicFileResponse ()
+@interface HTTPDynamicFileResponse ()
 {
 	NSData *separator;
 	NSDictionary *replacementDict;
@@ -11,10 +11,10 @@
 
 @end
 
-@implementation VNHTTPDynamicFileResponse
+@implementation HTTPDynamicFileResponse
 
 - (instancetype)initWithFilePath:(NSString *)fpath
-         forConnection:(VNHTTPConnection *)parent
+         forConnection:(HTTPConnection *)parent
              separator:(NSString *)separatorStr
  replacementDictionary:(NSDictionary *)dict
 {

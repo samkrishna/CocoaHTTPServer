@@ -27,7 +27,6 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_OFF; // | HTTP_LOG_FLAG_TRACE;
 		connection = parent;
 		
 		connectionQueue = dispatch_get_current_queue();
-		dispatch_retain(connectionQueue);
 		
 		readyToSendResponseHeaders = NO;
 		
@@ -118,8 +117,6 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_OFF; // | HTTP_LOG_FLAG_TRACE;
 - (void)dealloc
 {
 	HTTPLogTrace();
-	
-	dispatch_release(connectionQueue);
 }
 
 @end

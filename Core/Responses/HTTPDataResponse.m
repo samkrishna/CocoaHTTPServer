@@ -1,13 +1,13 @@
-#import "VNHTTPDataResponse.h"
+#import "HTTPDataResponse.h"
 #import "HTTPLogging.h"
 
-@interface VNHTTPDataResponse ()
+@interface HTTPDataResponse ()
 
 @property (nonatomic, strong) NSData *data;
 
 @end
 
-@implementation VNHTTPDataResponse
+@implementation HTTPDataResponse
 
 @synthesize offset = _offset;
 

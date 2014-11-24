@@ -1,15 +1,15 @@
 #import "GCDAsyncSocket.h"
-#import "VNHTTPServer.h"
-#import "VNHTTPConnection.h"
-#import "VNHTTPMessage.h"
+#import "HTTPServer.h"
+#import "HTTPConnection.h"
+#import "HTTPMessage.h"
 #import "HTTPResponse.h"
-#import "VNHTTPAuthenticationRequest.h"
+#import "HTTPAuthenticationRequest.h"
 #import "DDNumber.h"
 #import "DDRange.h"
 #import "DDData.h"
-#import "VNHTTPFileResponse.h"
-#import "VNHTTPAsyncFileResponse.h"
-#import "VNWebSocket.h"
+#import "HTTPFileResponse.h"
+#import "HTTPAsyncFileResponse.h"
+#import "WebSocket.h"
 #import "HTTPLogging.h"
 #import "HTTPBase.h"
 
@@ -75,7 +75,7 @@
 // the HTTP_RESPONSE tag. For all other segments prior to the last segment use HTTP_PARTIAL_RESPONSE, or some other
 // tag of your own invention.
 
-@interface VNHTTPConnection (PrivateAPI)
+@interface HTTPConnection (PrivateAPI)
 - (void)startReadingRequest;
 - (void)sendResponseHeadersAndBody;
 @end
@@ -84,7 +84,7 @@
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation VNHTTPConnection
+@implementation HTTPConnection
 
 static dispatch_queue_t recentNonceQueue;
 static NSMutableArray *recentNonces;
@@ -166,7 +166,7 @@ static NSMutableArray *recentNonces;
  * Associates this new HTTP connection with the given AsyncSocket.
  * This HTTP connection object will become the socket's delegate and take over responsibility for the socket.
 **/
-- (instancetype)initWithAsyncSocket:(GCDAsyncSocket *)newSocket configuration:(VNHTTPConfiguration *)aConfig
+- (instancetype)initWithAsyncSocket:(GCDAsyncSocket *)newSocket configuration:(HTTPConfiguration *)aConfig
 {
 	if ((self = [super init]))
 	{
@@ -197,7 +197,7 @@ static NSMutableArray *recentNonces;
 		lastNC = 0;
 		
 		// Create a new HTTP message
-		request = [[VNHTTPMessage alloc] initEmptyRequest];
+		request = [[HTTPMessage alloc] initEmptyRequest];
 		
 		numHeaderLines = 0;
 		
@@ -396,7 +396,7 @@ static NSMutableArray *recentNonces;
 	HTTPLogTrace();
 	
 	// Extract the authentication information from the Authorization header
-	VNHTTPAuthenticationRequest *auth = [[VNHTTPAuthenticationRequest alloc] initWithRequest:request];
+	HTTPAuthenticationRequest *auth = [[HTTPAuthenticationRequest alloc] initWithRequest:request];
 	
 	if ([self useDigestAccessAuthentication])
 	{
@@ -526,7 +526,7 @@ static NSMutableArray *recentNonces;
 /**
  * Adds a digest access authentication challenge to the given response.
 **/
-- (void)addDigestAuthChallenge:(VNHTTPMessage *)response
+- (void)addDigestAuthChallenge:(HTTPMessage *)response
 {
 	HTTPLogTrace();
 	
@@ -539,7 +539,7 @@ static NSMutableArray *recentNonces;
 /**
  * Adds a basic authentication challenge to the given response.
 **/
-- (void)addBasicAuthChallenge:(VNHTTPMessage *)response
+- (void)addBasicAuthChallenge:(HTTPMessage *)response
 {
 	HTTPLogTrace();
 	
@@ -910,11 +910,11 @@ static NSMutableArray *recentNonces;
 	NSString *uri = [self requestURI];
 	
 	// Check for WebSocket request
-	if ([VNWebSocket isWebSocketRequest:request])
+	if ([WebSocket isWebSocketRequest:request])
 	{
 		HTTPLogVerbose(@"isWebSocket");
 		
-		VNWebSocket *ws = [self webSocketForURI:uri];
+		WebSocket *ws = [self webSocketForURI:uri];
 		
 		if (ws == nil)
 		{
@@ -1000,12 +1000,12 @@ static NSMutableArray *recentNonces;
  * 
  * Note: The returned HTTPMessage is owned by the sender, who is responsible for releasing it.
 **/
-- (VNHTTPMessage *)newUniRangeResponse:(UInt64)contentLength
+- (HTTPMessage *)newUniRangeResponse:(UInt64)contentLength
 {
 	HTTPLogTrace();
 	
 	// Status Code 206 - Partial Content
-	VNHTTPMessage *response = [[VNHTTPMessage alloc] initResponseWithStatusCode:206 description:nil version:HTTPVersion1_1];
+	HTTPMessage *response = [[HTTPMessage alloc] initResponseWithStatusCode:206 description:nil version:HTTPVersion1_1];
 	
 	DDRange range = [ranges[0] ddrangeValue];
 	
@@ -1024,12 +1024,12 @@ static NSMutableArray *recentNonces;
  * 
  * Note: The returned HTTPMessage is owned by the sender, who is responsible for releasing it.
 **/
-- (VNHTTPMessage *)newMultiRangeResponse:(UInt64)contentLength
+- (HTTPMessage *)newMultiRangeResponse:(UInt64)contentLength
 {
 	HTTPLogTrace();
 	
 	// Status Code 206 - Partial Content
-	VNHTTPMessage *response = [[VNHTTPMessage alloc] initResponseWithStatusCode:206 description:nil version:HTTPVersion1_1];
+	HTTPMessage *response = [[HTTPMessage alloc] initResponseWithStatusCode:206 description:nil version:HTTPVersion1_1];
 	
 	// We have to send each range using multipart/byteranges
 	// So each byterange has to be prefix'd and suffix'd with the boundry
@@ -1162,7 +1162,7 @@ static NSMutableArray *recentNonces;
         }
 	}
 	
-	VNHTTPMessage *response;
+	HTTPMessage *response;
 	
 	if (!isRangeRequest)
 	{
@@ -1174,7 +1174,7 @@ static NSMutableArray *recentNonces;
 		{
 			status = [httpResponse status];
 		}
-		response = [[VNHTTPMessage alloc] initResponseWithStatusCode:status description:nil version:HTTPVersion1_1];
+		response = [[HTTPMessage alloc] initResponseWithStatusCode:status description:nil version:HTTPVersion1_1];
 		
 		if (isChunked)
 		{
@@ -1659,7 +1659,7 @@ static NSMutableArray *recentNonces;
  * HTTPFileResponse is a wrapper for an NSFileHandle object, and is the preferred way to send a file response.
  * HTTPDataResponse is a wrapper for an NSData object, and may be used to send a custom response.
 **/
-- (NSObject<VNHTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
+- (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
 	HTTPLogTrace();
 	
@@ -1671,7 +1671,7 @@ static NSMutableArray *recentNonces;
 	
 	if (filePath && [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir] && !isDir)
 	{
-		return [[VNHTTPFileResponse alloc] initWithFilePath:filePath forConnection:self];
+		return [[HTTPFileResponse alloc] initWithFilePath:filePath forConnection:self];
 	
 		// Use me instead for asynchronous file IO.
 		// Generally better for larger files.
@@ -1682,7 +1682,7 @@ static NSMutableArray *recentNonces;
 	return nil;
 }
 
-- (VNWebSocket *)webSocketForURI:(NSString *)path
+- (WebSocket *)webSocketForURI:(NSString *)path
 {
 	HTTPLogTrace();
 	
@@ -1755,7 +1755,7 @@ static NSMutableArray *recentNonces;
 	
 	HTTPLogWarn(@"HTTP Server: Error 505 - Version Not Supported: %@ (%@)", version, [self requestURI]);
 	
-	VNHTTPMessage *response = [[VNHTTPMessage alloc] initResponseWithStatusCode:505 description:nil version:HTTPVersion1_1];
+	HTTPMessage *response = [[HTTPMessage alloc] initResponseWithStatusCode:505 description:nil version:HTTPVersion1_1];
 	[response setHeaderField:@"Content-Length" value:@"0"];
     
 	NSData *responseData = [self preprocessErrorResponse:response];
@@ -1775,7 +1775,7 @@ static NSMutableArray *recentNonces;
 	HTTPLogInfo(@"HTTP Server: Error 401 - Unauthorized (%@)", [self requestURI]);
 		
 	// Status Code 401 - Unauthorized
-	VNHTTPMessage *response = [[VNHTTPMessage alloc] initResponseWithStatusCode:401 description:nil version:HTTPVersion1_1];
+	HTTPMessage *response = [[HTTPMessage alloc] initResponseWithStatusCode:401 description:nil version:HTTPVersion1_1];
 	[response setHeaderField:@"Content-Length" value:@"0"];
 	
 	if ([self useDigestAccessAuthentication])
@@ -1806,7 +1806,7 @@ static NSMutableArray *recentNonces;
 	HTTPLogWarn(@"HTTP Server: Error 400 - Bad Request (%@)", [self requestURI]);
 	
 	// Status Code 400 - Bad Request
-	VNHTTPMessage *response = [[VNHTTPMessage alloc] initResponseWithStatusCode:400 description:nil version:HTTPVersion1_1];
+	HTTPMessage *response = [[HTTPMessage alloc] initResponseWithStatusCode:400 description:nil version:HTTPVersion1_1];
 	[response setHeaderField:@"Content-Length" value:@"0"];
 	[response setHeaderField:@"Connection" value:@"close"];
 	
@@ -1834,7 +1834,7 @@ static NSMutableArray *recentNonces;
 	HTTPLogWarn(@"HTTP Server: Error 405 - Method Not Allowed: %@ (%@)", method, [self requestURI]);
 	
 	// Status code 405 - Method Not Allowed
-	VNHTTPMessage *response = [[VNHTTPMessage alloc] initResponseWithStatusCode:405 description:nil version:HTTPVersion1_1];
+	HTTPMessage *response = [[HTTPMessage alloc] initResponseWithStatusCode:405 description:nil version:HTTPVersion1_1];
 	[response setHeaderField:@"Content-Length" value:@"0"];
 	[response setHeaderField:@"Connection" value:@"close"];
 	
@@ -1859,7 +1859,7 @@ static NSMutableArray *recentNonces;
 	HTTPLogInfo(@"HTTP Server: Error 404 - Not Found (%@)", [self requestURI]);
 	
 	// Status Code 404 - Not Found
-	VNHTTPMessage *response = [[VNHTTPMessage alloc] initResponseWithStatusCode:404 description:nil version:HTTPVersion1_1];
+	HTTPMessage *response = [[HTTPMessage alloc] initResponseWithStatusCode:404 description:nil version:HTTPVersion1_1];
 	[response setHeaderField:@"Content-Length" value:@"0"];
 	
 	NSData *responseData = [self preprocessErrorResponse:response];
@@ -1913,7 +1913,7 @@ static NSMutableArray *recentNonces;
  * This method is called immediately prior to sending the response headers.
  * This method adds standard header fields, and then converts the response to an NSData object.
 **/
-- (NSData *)preprocessResponse:(VNHTTPMessage *)response
+- (NSData *)preprocessResponse:(HTTPMessage *)response
 {
 	HTTPLogTrace();
 	
@@ -1950,7 +1950,7 @@ static NSMutableArray *recentNonces;
  * This method is called immediately prior to sending the response headers (for an error).
  * This method adds standard header fields, and then converts the response to an NSData object.
 **/
-- (NSData *)preprocessErrorResponse:(VNHTTPMessage *)response;
+- (NSData *)preprocessErrorResponse:(HTTPMessage *)response;
 {
 	HTTPLogTrace();
 	
@@ -2451,7 +2451,7 @@ static NSMutableArray *recentNonces;
 				// finishBody method and forgot to call [super finishBody].
 				NSAssert(request == nil, @"Request not properly released in finishBody");
 				
-				request = [[VNHTTPMessage alloc] initEmptyRequest];
+				request = [[HTTPMessage alloc] initEmptyRequest];
 				
 				numHeaderLines = 0;
 				sentResponseHeaders = NO;
@@ -2485,7 +2485,7 @@ static NSMutableArray *recentNonces;
  * 
  * This informs us that the response object has generated more data that we may be able to send.
 **/
-- (void)responseHasAvailableData:(NSObject<VNHTTPResponse> *)sender
+- (void)responseHasAvailableData:(NSObject<HTTPResponse> *)sender
 {
 	HTTPLogTrace();
 	
@@ -2528,7 +2528,7 @@ static NSMutableArray *recentNonces;
  * This method is called if the response encounters some critical error,
  * and it will be unable to fullfill the request.
 **/
-- (void)responseDidAbort:(NSObject<VNHTTPResponse> *)sender
+- (void)responseDidAbort:(NSObject<HTTPResponse> *)sender
 {
 	HTTPLogTrace();
 	
@@ -2652,13 +2652,13 @@ static NSMutableArray *recentNonces;
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation VNHTTPConfiguration
+@implementation HTTPConfiguration
 
 @synthesize server;
 @synthesize documentRoot;
 @synthesize queue;
 
-- (instancetype)initWithServer:(VNHTTPServer *)aServer documentRoot:(NSString *)aDocumentRoot
+- (instancetype)initWithServer:(HTTPServer *)aServer documentRoot:(NSString *)aDocumentRoot
 {
 	if ((self = [super init]))
 	{
@@ -2668,7 +2668,7 @@ static NSMutableArray *recentNonces;
 	return self;
 }
 
-- (instancetype)initWithServer:(VNHTTPServer *)aServer documentRoot:(NSString *)aDocumentRoot queue:(dispatch_queue_t)q
+- (instancetype)initWithServer:(HTTPServer *)aServer documentRoot:(NSString *)aDocumentRoot queue:(dispatch_queue_t)q
 {
 	if ((self = [super init]))
 	{

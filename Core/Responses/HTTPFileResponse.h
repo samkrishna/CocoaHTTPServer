@@ -1,13 +1,13 @@
 #import <Foundation/Foundation.h>
 #import "HTTPResponse.h"
 
-@class VNHTTPConnection;
+@class HTTPConnection;
 
 
-@interface VNHTTPFileResponse : NSObject <VNHTTPResponse>
+@interface HTTPFileResponse : NSObject <HTTPResponse>
 
 - (instancetype)initWithFilePath: (NSString *)filePath
-				   forConnection: (VNHTTPConnection *)connection;
+				   forConnection: (HTTPConnection *)connection;
 
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *filePath;
 

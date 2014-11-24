@@ -2,7 +2,7 @@
 #import "HTTPResponse.h"
 
 
-@interface VNHTTPDataResponse : NSObject <VNHTTPResponse>
+@interface HTTPDataResponse : NSObject <HTTPResponse>
 
 - (instancetype)initWithData:(NSData *)data;
 

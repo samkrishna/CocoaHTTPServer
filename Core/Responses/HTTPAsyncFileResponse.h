@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "HTTPResponse.h"
 
-@class VNHTTPConnection;
+@class HTTPConnection;
 
 /**
  * This is an asynchronous version of HTTPFileResponse.
@@ -11,9 +11,9 @@
  * An example of this is the HTTPDynamicFileResponse class.
 **/
 
-@interface VNHTTPAsyncFileResponse : NSObject <VNHTTPResponse>
+@interface HTTPAsyncFileResponse : NSObject <HTTPResponse>
 {	
-	VNHTTPConnection *connection;
+	HTTPConnection *connection;
 	
 	NSString *filePath;
 	UInt64 fileLength;
@@ -34,7 +34,7 @@
 	BOOL readSourceSuspended;
 }
 
-- (instancetype)initWithFilePath:(NSString *)filePath forConnection:(VNHTTPConnection *)connection;
+- (instancetype)initWithFilePath:(NSString *)filePath forConnection:(HTTPConnection *)connection;
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *filePath;
 
 @end

@@ -1,13 +1,13 @@
-#import "VNHTTPRedirectResponse.h"
+#import "HTTPRedirectResponse.h"
 #import "HTTPLogging.h"
 
-@interface VNHTTPRedirectResponse ()
+@interface HTTPRedirectResponse ()
 
 @property (nonatomic, copy) NSString *redirectPath;
 
 @end
 
-@implementation VNHTTPRedirectResponse
+@implementation HTTPRedirectResponse
 
 - (instancetype)initWithPath:(NSString *)path
 {

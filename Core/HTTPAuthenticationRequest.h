@@ -5,10 +5,10 @@
   #import <CFNetwork/CFNetwork.h>
 #endif
 
-@class VNHTTPMessage;
+@class HTTPMessage;
 
 
-@interface VNHTTPAuthenticationRequest : NSObject
+@interface HTTPAuthenticationRequest : NSObject
 {
 	BOOL isBasic;
 	BOOL isDigest;
@@ -24,7 +24,7 @@
 	NSString *cnonce;
 	NSString *response;
 }
-- (instancetype)initWithRequest:(VNHTTPMessage *)request;
+- (instancetype)initWithRequest:(HTTPMessage *)request;
 
 @property (NS_NONATOMIC_IOSONLY, getter=isBasic, readonly) BOOL basic;
 @property (NS_NONATOMIC_IOSONLY, getter=isDigest, readonly) BOOL digest;

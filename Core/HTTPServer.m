@@ -1,11 +1,11 @@
-#import "VNHTTPServer.h"
+#import "HTTPServer.h"
 #import "GCDAsyncSocket.h"
-#import "VNHTTPConnection.h"
-#import "VNWebSocket.h"
+#import "HTTPConnection.h"
+#import "WebSocket.h"
 #import "HTTPLogging.h"
 #import "HTTPBase.h"
 
-@interface VNHTTPServer (PrivateAPI)
+@interface HTTPServer (PrivateAPI)
 
 - (void)unpublishBonjour;
 - (void)publishBonjour;
@@ -19,7 +19,7 @@
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation VNHTTPServer
+@implementation HTTPServer
 
 /**
  * Standard Constructor.
@@ -37,7 +37,7 @@
 		
 		// Use default connection class of HTTPConnection
 		connectionQueue = dispatch_queue_create("HTTPConnection", NULL);
-		connectionClass = [VNHTTPConnection self];
+		connectionClass = [HTTPConnection self];
 		
 		// By default bind on all available interfaces, en1, wifi etc
 		interface = nil;
@@ -434,7 +434,7 @@
 		{
 			// Stop all HTTP connections the server owns
 			[connectionsLock lock];
-			for (VNHTTPConnection *connection in connections)
+			for (HTTPConnection *connection in connections)
 			{
 				[connection stop];
 			}
@@ -443,7 +443,7 @@
 			
 			// Stop all WebSocket connections the server owns
 			[webSocketsLock lock];
-			for (VNWebSocket *webSocket in webSockets)
+			for (WebSocket *webSocket in webSockets)
 			{
 				[webSocket stop];
 			}
@@ -464,7 +464,7 @@
 	return result;
 }
 
-- (void)addWebSocket:(VNWebSocket *)ws
+- (void)addWebSocket:(WebSocket *)ws
 {
 	[webSocketsLock lock];
 	
@@ -510,7 +510,7 @@
 #pragma mark Incoming Connections
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (VNHTTPConfiguration *)config
+- (HTTPConfiguration *)config
 {
 	// Override me if you want to provide a custom config to the new connection.
 	// 
@@ -523,12 +523,12 @@
 	// Try the apache benchmark tool (already installed on your Mac):
 	// $  ab -n 1000 -c 1 http://localhost:<port>/some_path.html
 	
-	return [[VNHTTPConfiguration alloc] initWithServer:self documentRoot:documentRoot queue:connectionQueue];
+	return [[HTTPConfiguration alloc] initWithServer:self documentRoot:documentRoot queue:connectionQueue];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
 {
-	VNHTTPConnection *newConnection = (VNHTTPConnection *)[[connectionClass alloc] initWithAsyncSocket:newSocket
+	HTTPConnection *newConnection = (HTTPConnection *)[[connectionClass alloc] initWithAsyncSocket:newSocket
 	                                                                                 configuration:[self config]];
 	[connectionsLock lock];
 	[connections addObject:newConnection];

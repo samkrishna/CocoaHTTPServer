@@ -1,6 +1,6 @@
-#import "VNHTTPMessage.h"
+#import "HTTPMessage.h"
 
-@implementation VNHTTPMessage
+@implementation HTTPMessage
 
 - (instancetype)initEmptyRequest
 {

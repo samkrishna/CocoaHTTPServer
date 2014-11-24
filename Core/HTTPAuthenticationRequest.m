@@ -1,15 +1,15 @@
-#import "VNHTTPAuthenticationRequest.h"
-#import "VNHTTPMessage.h"
+#import "HTTPAuthenticationRequest.h"
+#import "HTTPMessage.h"
 
-@interface VNHTTPAuthenticationRequest (PrivateAPI)
+@interface HTTPAuthenticationRequest (PrivateAPI)
 - (NSString *)quotedSubHeaderFieldValue:(NSString *)param fromHeaderFieldValue:(NSString *)header;
 - (NSString *)nonquotedSubHeaderFieldValue:(NSString *)param fromHeaderFieldValue:(NSString *)header;
 @end
 
 
-@implementation VNHTTPAuthenticationRequest
+@implementation HTTPAuthenticationRequest
 
-- (instancetype)initWithRequest:(VNHTTPMessage *)request
+- (instancetype)initWithRequest:(HTTPMessage *)request
 {
 	if ((self = [super init]))
 	{

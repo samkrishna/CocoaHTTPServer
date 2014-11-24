@@ -1,14 +1,14 @@
-#import "VNHTTPFileResponse.h"
-#import "VNHTTPConnection.h"
+#import "HTTPFileResponse.h"
+#import "HTTPConnection.h"
 #import "HTTPLogging.h"
 #import "HTTPBase.h"
 
 #import <unistd.h>
 #import <fcntl.h>
 
-@interface VNHTTPFileResponse ()
+@interface HTTPFileResponse ()
 {
-	VNHTTPConnection *connection;
+	HTTPConnection *connection;
 	
 	NSString *filePath;
 	UInt64 fileLength;
@@ -22,9 +22,9 @@
 }
 @end
 
-@implementation VNHTTPFileResponse
+@implementation HTTPFileResponse
 
-- (instancetype)initWithFilePath:(NSString *)fpath forConnection:(VNHTTPConnection *)parent
+- (instancetype)initWithFilePath:(NSString *)fpath forConnection:(HTTPConnection *)parent
 {
 	if((self = [super init]))
 	{

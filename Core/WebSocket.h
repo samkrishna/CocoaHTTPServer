@@ -1,16 +1,16 @@
 #import <Foundation/Foundation.h>
 
-@class VNHTTPMessage;
+@class HTTPMessage;
 @class GCDAsyncSocket;
 
 
 #define WebSocketDidDieNotification  @"WebSocketDidDie"
 
-@interface VNWebSocket : NSObject
+@interface WebSocket : NSObject
 
-+ (BOOL)isWebSocketRequest:(VNHTTPMessage *)request;
++ (BOOL)isWebSocketRequest:(HTTPMessage *)request;
 
-- (instancetype)initWithRequest:(VNHTTPMessage *)request socket:(GCDAsyncSocket *)socket;
+- (instancetype)initWithRequest:(HTTPMessage *)request socket:(GCDAsyncSocket *)socket;
 
 /**
  * Delegate option.
@@ -74,10 +74,10 @@
 @protocol WebSocketDelegate
 @optional
 
-- (void)webSocketDidOpen:(VNWebSocket *)ws;
+- (void)webSocketDidOpen:(WebSocket *)ws;
 
-- (void)webSocket:(VNWebSocket *)ws didReceiveMessage:(NSString *)msg;
+- (void)webSocket:(WebSocket *)ws didReceiveMessage:(NSString *)msg;
 
-- (void)webSocketDidClose:(VNWebSocket *)ws;
+- (void)webSocketDidClose:(WebSocket *)ws;
 
 @end

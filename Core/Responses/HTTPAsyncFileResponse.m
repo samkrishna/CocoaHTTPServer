@@ -1,5 +1,5 @@
-#import "VNHTTPAsyncFileResponse.h"
-#import "VNHTTPConnection.h"
+#import "HTTPAsyncFileResponse.h"
+#import "HTTPConnection.h"
 #import "HTTPLogging.h"
 #import "HTTPBase.h"
 
@@ -23,9 +23,9 @@
  * we don't open the file until we have to (until the connection starts requesting data).
 **/
 
-@implementation VNHTTPAsyncFileResponse
+@implementation HTTPAsyncFileResponse
 
-- (instancetype)initWithFilePath:(NSString *)fpath forConnection:(VNHTTPConnection *)parent
+- (instancetype)initWithFilePath:(NSString *)fpath forConnection:(HTTPConnection *)parent
 {
 	if ((self = [super init]))
 	{
