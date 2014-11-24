@@ -6492,7 +6492,7 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 	
 	#pragma clang diagnostic push
 	#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-	value = [tlsSettings objectForKey:(NSString *)kCFStreamSSLLevel];
+	value = [tlsSettings objectForKey:GCDAsyncSocketSSLProtocolVersionMin];
 	#pragma clang diagnostic pop
 	if (value)
 	{
