@@ -4,7 +4,10 @@
 #import "DDNumber.h"
 #import "DDData.h"
 #import "HTTPLogging.h"
-#import "HTTPBase.h"
+
+#if ! __has_feature(objc_arc)
+#warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
 
 // Log levels: off, error, warn, info, verbose
 // Other flags : trace
@@ -33,11 +36,6 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 #define WS_OP_PING                 9
 #define WS_OP_PONG                 10
 
-//static inline BOOL WS_OP_IS_FINAL_FRAGMENT(UInt8 frame)
-//{
-//	return (frame & 0x80) ? YES : NO;
-//}
-
 static inline BOOL WS_PAYLOAD_IS_MASKED(UInt8 frame)
 {
 	return (frame & 0x80) ? YES : NO;
@@ -48,23 +46,10 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	return frame & 0x7F;
 }
 
-@interface WebSocket ()
-{
-	dispatch_queue_t websocketQueue;
-	
-	HTTPMessage *request;
-	GCDAsyncSocket *asyncSocket;
-	
-	NSData *term;
-	
-	BOOL isStarted;
-	BOOL isOpen;
-	BOOL isVersion76;
-	
-	id __unsafe_unretained delegate;
-}
+@interface WebSocket (PrivateAPI)
 
 - (void)readRequestBody;
+- (void)sendResponseBody;
 - (void)sendResponseHeaders;
 
 @end
@@ -165,7 +150,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 
 @synthesize websocketQueue;
 
-- (instancetype)initWithRequest:(HTTPMessage *)aRequest socket:(GCDAsyncSocket *)socket
+- (id)initWithRequest:(HTTPMessage *)aRequest socket:(GCDAsyncSocket *)socket
 {
 	HTTPLogTrace();
 	
@@ -179,9 +164,11 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 		if (HTTP_LOG_VERBOSE)
 		{
 			NSData *requestHeaders = [aRequest messageData];
-			
-			NSString *temp = [[NSString alloc] initWithData:requestHeaders encoding:NSUTF8StringEncoding];
-			HTTPLogVerbose(@"%@[%p] Request Headers:\n%@", THIS_FILE, self, temp);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+            NSString *temp = [[NSString alloc] initWithData:requestHeaders encoding:NSUTF8StringEncoding];
+            HTTPLogVerbose(@"%@[%p] Request Headers:\n%@", THIS_FILE, self, temp);
+#pragma clang diagnostic pop
 		}
 		
 		websocketQueue = dispatch_queue_create("WebSocket", NULL);
@@ -203,7 +190,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 {
 	HTTPLogTrace();
 	
-	#if NEEDS_DISPATCH_RETAIN_RELEASE
+	#if !OS_OBJECT_USE_OBJC
 	dispatch_release(websocketQueue);
 	#endif
 	
@@ -421,8 +408,11 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	
 	if (HTTP_LOG_VERBOSE)
 	{
-		NSString *temp = [[NSString alloc] initWithData:responseHeaders encoding:NSUTF8StringEncoding];
-		HTTPLogVerbose(@"%@[%p] Response Headers:\n%@", THIS_FILE, self, temp);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+        NSString *temp = [[NSString alloc] initWithData:responseHeaders encoding:NSUTF8StringEncoding];
+        HTTPLogVerbose(@"%@[%p] Response Headers:\n%@", THIS_FILE, self, temp);
+#pragma clang diagnostic pop
 	}
 	
 	[asyncSocket writeData:responseHeaders withTimeout:TIMEOUT_NONE tag:TAG_HTTP_RESPONSE_HEADERS];
@@ -503,20 +493,22 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	
 	if (HTTP_LOG_VERBOSE)
 	{
-		NSString *s1 = [[NSString alloc] initWithData:d1 encoding:NSASCIIStringEncoding];
-		NSString *s2 = [[NSString alloc] initWithData:d2 encoding:NSASCIIStringEncoding];
-		NSString *s3 = [[NSString alloc] initWithData:d3 encoding:NSASCIIStringEncoding];
-		
-		NSString *s0 = [[NSString alloc] initWithData:d0 encoding:NSASCIIStringEncoding];
-		
-		NSString *sH = [[NSString alloc] initWithData:responseBody encoding:NSASCIIStringEncoding];
-		
-		HTTPLogVerbose(@"key1 result : raw(%@) str(%@)", d1, s1);
-		HTTPLogVerbose(@"key2 result : raw(%@) str(%@)", d2, s2);
-		HTTPLogVerbose(@"key3 passed : raw(%@) str(%@)", d3, s3);
-		HTTPLogVerbose(@"key0 concat : raw(%@) str(%@)", d0, s0);
-		HTTPLogVerbose(@"responseBody: raw(%@) str(%@)", responseBody, sH);
-		
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+        NSString *s1 = [[NSString alloc] initWithData:d1 encoding:NSASCIIStringEncoding];
+        NSString *s2 = [[NSString alloc] initWithData:d2 encoding:NSASCIIStringEncoding];
+        NSString *s3 = [[NSString alloc] initWithData:d3 encoding:NSASCIIStringEncoding];
+        
+        NSString *s0 = [[NSString alloc] initWithData:d0 encoding:NSASCIIStringEncoding];
+        
+        NSString *sH = [[NSString alloc] initWithData:responseBody encoding:NSASCIIStringEncoding];
+        
+        HTTPLogVerbose(@"key1 result : raw(%@) str(%@)", d1, s1);
+        HTTPLogVerbose(@"key2 result : raw(%@) str(%@)", d2, s2);
+        HTTPLogVerbose(@"key3 passed : raw(%@) str(%@)", d3, s3);
+        HTTPLogVerbose(@"key0 concat : raw(%@) str(%@)", d0, s0);
+        HTTPLogVerbose(@"responseBody: raw(%@) str(%@)", responseBody, sH);
+#pragma clang diagnostic pop
 	}
 }
 
@@ -544,11 +536,16 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 }
 
 - (void)sendMessage:(NSString *)msg
-{
-	HTTPLogTrace();
-	
+{	
 	NSData *msgData = [msg dataUsingEncoding:NSUTF8StringEncoding];
-	NSMutableData *data = nil;
+	[self sendData:msgData];
+}
+
+- (void)sendData:(NSData *)msgData
+{
+    HTTPLogTrace();
+    
+    NSMutableData *data = nil;
 	
 	if (isRFC6455)
 	{
@@ -580,7 +577,7 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 	else
 	{
 		data = [NSMutableData dataWithCapacity:([msgData length] + 2)];
-
+        
 		[data appendBytes:"\x00" length:1];
 		[data appendData:msgData];
 		[data appendBytes:"\xFF" length:1];
