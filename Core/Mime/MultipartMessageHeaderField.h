@@ -5,7 +5,7 @@
 // interface MultipartMessageHeaderField
 //-----------------------------------------------------------------
 
-@interface VNMultipartMessageHeaderField : NSObject {
+@interface MultipartMessageHeaderField : NSObject {
 	NSString*						name;
     NSString*						value;
     NSMutableDictionary*			params;

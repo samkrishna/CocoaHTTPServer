@@ -5,8 +5,8 @@
 //  Created by Валерий Гаврилов on 29.03.12.
 //  Copyright (c) 2012 LLC "Online Publishing Partners" (onlinepp.ru). All rights reserved.
 
-#import "VNMultipartMessageHeader.h"
-#import "VNMultipartMessageHeaderField.h"
+#import "MultipartMessageHeader.h"
+#import "MultipartMessageHeaderField.h"
 
 #import "HTTPLogging.h"
 
@@ -15,7 +15,7 @@
 //-----------------------------------------------------------------
 
 
-@implementation VNMultipartMessageHeader
+@implementation MultipartMessageHeader
 @synthesize fields,encoding;
 
 
@@ -40,7 +40,7 @@
 		// the !isspace condition is to support header unfolding
 		if( (*(uint16_t*) (bytes+offset)  == fields_separator) && ((offset == length - 2) || !(isspace(bytes[offset+2])) )) {
 			NSData* fieldData = [NSData dataWithBytesNoCopy:bytes length:offset freeWhenDone:NO];
-			VNMultipartMessageHeaderField* field = [[VNMultipartMessageHeaderField alloc] initWithData: fieldData  contentEncoding:formEncoding];
+			MultipartMessageHeaderField* field = [[MultipartMessageHeaderField alloc] initWithData: fieldData  contentEncoding:formEncoding];
 			if( field ) {
 				fields[field.name] = field;
 				HTTPLogVerbose(@"MultipartFormDataParser: Processed Header field '%@'",field.name);

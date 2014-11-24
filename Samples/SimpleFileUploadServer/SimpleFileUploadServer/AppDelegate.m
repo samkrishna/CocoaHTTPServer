@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "VNHTTPServer.h"
+#import "HTTPServer.h"
 #import "MyHTTPConnection.h"
 
 
@@ -8,7 +8,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {	
 	// Initalize our http server
-	httpServer = [[VNHTTPServer alloc] init];
+	httpServer = [[HTTPServer alloc] init];
 	
 	// Tell the server to broadcast its presence via Bonjour.
 	// This allows browsers such as Safari to automatically discover our service.

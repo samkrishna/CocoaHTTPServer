@@ -1,5 +1,5 @@
 
-#import "VNMultipartMessageHeaderField.h"
+#import "MultipartMessageHeaderField.h"
 #import "HTTPLogging.h"
 
 // helpers
@@ -11,7 +11,7 @@ NSString* extractParamValue(const char* bytes, NSUInteger length, NSStringEncodi
 //-----------------------------------------------------------------
 
 
-@interface VNMultipartMessageHeaderField (private)
+@interface MultipartMessageHeaderField (private)
 -(BOOL) parseHeaderValueBytes:(char*) bytes length:(NSUInteger) length encoding:(NSStringEncoding) encoding;
 @end
 
@@ -20,7 +20,7 @@ NSString* extractParamValue(const char* bytes, NSUInteger length, NSStringEncodi
 // implementation MultipartMessageHeaderField
 //-----------------------------------------------------------------
 
-@implementation VNMultipartMessageHeaderField
+@implementation MultipartMessageHeaderField
 @synthesize name,value,params;
 
 - (instancetype) initWithData:(NSData *)data contentEncoding:(NSStringEncoding)encoding {

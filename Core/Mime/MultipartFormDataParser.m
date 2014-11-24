@@ -1,5 +1,5 @@
 
-#import "VNMultipartFormDataParser.h"
+#import "MultipartFormDataParser.h"
 #import "DDData.h"
 #import "HTTPLogging.h"
 
@@ -8,7 +8,7 @@
 //-----------------------------------------------------------------
 
 
-@interface VNMultipartFormDataParser (private)
+@interface MultipartFormDataParser (private)
 + (NSData*) decodedDataFromData:(NSData*) data encoding:(int) encoding;
 
 - (NSUInteger) findHeaderEnd:(NSData*) workingData fromOffset:(NSUInteger) offset;
@@ -27,7 +27,7 @@
 //-----------------------------------------------------------------
 
 
-@implementation VNMultipartFormDataParser 
+@implementation MultipartFormDataParser 
 @synthesize delegate,formEncoding;
 
 - (instancetype) initWithBoundary:(NSString*) boundary formEncoding:(NSStringEncoding) _formEncoding {
@@ -204,7 +204,7 @@
 
 				// let the header parser do it's job from now on.
 				NSData * headerData = [NSData dataWithBytesNoCopy: (char*) workingData.bytes + offset length:headerEnd + 2 - offset freeWhenDone:NO];
-				currentHeader = [[VNMultipartMessageHeader alloc] initWithData:headerData formEncoding:formEncoding];
+				currentHeader = [[MultipartMessageHeader alloc] initWithData:headerData formEncoding:formEncoding];
 
 				if( nil == currentHeader ) {
 					// we've found the data is in wrong format.
@@ -243,7 +243,7 @@
 				return YES;
 			}
 			// decode the chunk and let the delegate use it (store in a file, for example)
-			NSData* decodedData = [VNMultipartFormDataParser decodedDataFromData:[NSData dataWithBytesNoCopy:(char*)workingData.bytes + offset length:workingData.length - offset - sizeToLeavePending freeWhenDone:NO] encoding:currentEncoding];
+			NSData* decodedData = [MultipartFormDataParser decodedDataFromData:[NSData dataWithBytesNoCopy:(char*)workingData.bytes + offset length:workingData.length - offset - sizeToLeavePending freeWhenDone:NO] encoding:currentEncoding];
 			
 			if( [delegate respondsToSelector:@selector(processContent:WithHeader:)] ) {
 				HTTPLogVerbose(@"MultipartFormDataParser: Processed %d bytes of body",sizeToPass);

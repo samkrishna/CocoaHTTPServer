@@ -1,14 +1,14 @@
 
 #import "MyHTTPConnection.h"
-#import "VNHTTPMessage.h"
-#import "VNHTTPDataResponse.h"
+#import "HTTPMessage.h"
+#import "HTTPDataResponse.h"
 #import "DDNumber.h"
 #import "HTTPLogging.h"
 
-#import "VNMultipartFormDataParser.h"
-#import "VNMultipartMessageHeaderField.h"
-#import "VNHTTPDynamicFileResponse.h"
-#import "VNHTTPFileResponse.h"
+#import "MultipartFormDataParser.h"
+#import "MultipartMessageHeaderField.h"
+#import "HTTPDynamicFileResponse.h"
+#import "HTTPFileResponse.h"
 
 /**
  * All we have to do is override appropriate methods in HTTPConnection.
@@ -79,7 +79,7 @@
 	return [super expectsRequestBodyFromMethod:method atPath:path];
 }
 
-- (NSObject<VNHTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
+- (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path
 {
 	HTTPLogTrace();
 	
@@ -96,11 +96,11 @@
 		NSString* templatePath = [[config documentRoot] stringByAppendingPathComponent:@"upload.html"];
 		NSDictionary* replacementDict = @{@"MyFiles": filesStr};
 		// use dynamic file response to apply our links to response template
-		return [[VNHTTPDynamicFileResponse alloc] initWithFilePath:templatePath forConnection:self separator:@"%" replacementDictionary:replacementDict];
+		return [[HTTPDynamicFileResponse alloc] initWithFilePath:templatePath forConnection:self separator:@"%" replacementDictionary:replacementDict];
 	}
 	if( [method isEqualToString:@"GET"] && [path hasPrefix:@"/upload/"] ) {
 		// let download the uploaded files
-		return [[VNHTTPFileResponse alloc] initWithFilePath: [[config documentRoot] stringByAppendingString:path] forConnection:self];
+		return [[HTTPFileResponse alloc] initWithFilePath: [[config documentRoot] stringByAppendingString:path] forConnection:self];
 	}
 	
 	return [super httpResponseForMethod:method URI:path];
@@ -112,7 +112,7 @@
 	
 	// set up mime parser
     NSString* boundary = [request headerField:@"boundary"];
-    parser = [[VNMultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
+    parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
     parser.delegate = self;
 
 	uploadedFiles = [[NSMutableArray alloc] init];
@@ -131,11 +131,11 @@
 #pragma mark multipart form data parser delegate
 
 
-- (void) processStartOfPartWithHeader:(VNMultipartMessageHeader*) header {
+- (void) processStartOfPartWithHeader:(MultipartMessageHeader*) header {
 	// in this sample, we are not interested in parts, other then file parts.
 	// check content disposition to find out filename
 
-    VNMultipartMessageHeaderField* disposition = (header.fields)[@"Content-Disposition"];
+    MultipartMessageHeaderField* disposition = (header.fields)[@"Content-Disposition"];
 	NSString* filename = [(disposition.params)[@"filename"] lastPathComponent];
 
     if ( (nil == filename) || [filename isEqualToString: @""] ) {
@@ -158,7 +158,7 @@
 }
 
 
-- (void) processContent:(NSData*) data WithHeader:(VNMultipartMessageHeader*) header 
+- (void) processContent:(NSData*) data WithHeader:(MultipartMessageHeader*) header 
 {
 	// here we just write the output from parser to the file.
 	if( storeFile ) {
@@ -166,7 +166,7 @@
 	}
 }
 
-- (void) processEndOfPartWithHeader:(VNMultipartMessageHeader*) header
+- (void) processEndOfPartWithHeader:(MultipartMessageHeader*) header
 {
 	// as the file part is over, we close the file.
 	[storeFile closeFile];
