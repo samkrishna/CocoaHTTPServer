@@ -7,5 +7,5 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <VNWebService/VNHTTPServer.h>
+#import <VNWebService/HTTPServer.h>
 

@@ -11,7 +11,7 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) VNHTTPServer *httpServer;
+@property (nonatomic, strong) HTTPServer *httpServer;
 
 @end
 
@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Create server using our custom MyHTTPServer class
-    _httpServer = [[VNHTTPServer alloc] init];
+    _httpServer = [[HTTPServer alloc] init];
     
     // Tell the server to broadcast its presence via Bonjour.
     // This allows browsers such as Safari to automatically discover our service.

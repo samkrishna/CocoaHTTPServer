@@ -28,45 +28,45 @@
 		60175B4619F9CD3900F83CFF /* HTTPBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1919F9CD3900F83CFF /* HTTPBase.h */; };
 		60175B4719F9CD3900F83CFF /* HTTPLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1A19F9CD3900F83CFF /* HTTPLogging.h */; };
 		60175B4819F9CD3900F83CFF /* HTTPResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1B19F9CD3900F83CFF /* HTTPResponse.h */; };
-		60175B4919F9CD3900F83CFF /* VNMultipartFormDataParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1D19F9CD3900F83CFF /* VNMultipartFormDataParser.h */; };
-		60175B4A19F9CD3900F83CFF /* VNMultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1E19F9CD3900F83CFF /* VNMultipartFormDataParser.m */; };
-		60175B4B19F9CD3900F83CFF /* VNMultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1E19F9CD3900F83CFF /* VNMultipartFormDataParser.m */; };
-		60175B4C19F9CD3900F83CFF /* VNMultipartMessageHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1F19F9CD3900F83CFF /* VNMultipartMessageHeader.h */; };
-		60175B4D19F9CD3900F83CFF /* VNMultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2019F9CD3900F83CFF /* VNMultipartMessageHeader.m */; };
-		60175B4E19F9CD3900F83CFF /* VNMultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2019F9CD3900F83CFF /* VNMultipartMessageHeader.m */; };
-		60175B4F19F9CD3900F83CFF /* VNMultipartMessageHeaderField.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2119F9CD3900F83CFF /* VNMultipartMessageHeaderField.h */; };
-		60175B5019F9CD3900F83CFF /* VNMultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2219F9CD3900F83CFF /* VNMultipartMessageHeaderField.m */; };
-		60175B5119F9CD3900F83CFF /* VNMultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2219F9CD3900F83CFF /* VNMultipartMessageHeaderField.m */; };
-		60175B5219F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h */; };
-		60175B5319F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2519F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m */; };
-		60175B5419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2519F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m */; };
-		60175B5519F9CD3900F83CFF /* VNHTTPDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2619F9CD3900F83CFF /* VNHTTPDataResponse.h */; };
-		60175B5619F9CD3900F83CFF /* VNHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2719F9CD3900F83CFF /* VNHTTPDataResponse.m */; };
-		60175B5719F9CD3900F83CFF /* VNHTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2719F9CD3900F83CFF /* VNHTTPDataResponse.m */; };
-		60175B5819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h */; };
-		60175B5919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m */; };
-		60175B5A19F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m */; };
-		60175B5B19F9CD3900F83CFF /* VNHTTPFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2A19F9CD3900F83CFF /* VNHTTPFileResponse.h */; };
-		60175B5C19F9CD3900F83CFF /* VNHTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2B19F9CD3900F83CFF /* VNHTTPFileResponse.m */; };
-		60175B5D19F9CD3900F83CFF /* VNHTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2B19F9CD3900F83CFF /* VNHTTPFileResponse.m */; };
-		60175B5E19F9CD3900F83CFF /* VNHTTPRedirectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2C19F9CD3900F83CFF /* VNHTTPRedirectResponse.h */; };
-		60175B5F19F9CD3900F83CFF /* VNHTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2D19F9CD3900F83CFF /* VNHTTPRedirectResponse.m */; };
-		60175B6019F9CD3900F83CFF /* VNHTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2D19F9CD3900F83CFF /* VNHTTPRedirectResponse.m */; };
-		60175B6119F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2E19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h */; };
-		60175B6219F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2F19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m */; };
-		60175B6319F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2F19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m */; };
-		60175B6419F9CD3900F83CFF /* VNHTTPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3019F9CD3900F83CFF /* VNHTTPConnection.h */; };
-		60175B6519F9CD3900F83CFF /* VNHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3119F9CD3900F83CFF /* VNHTTPConnection.m */; };
-		60175B6619F9CD3900F83CFF /* VNHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3119F9CD3900F83CFF /* VNHTTPConnection.m */; };
-		60175B6719F9CD3900F83CFF /* VNHTTPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3219F9CD3900F83CFF /* VNHTTPMessage.h */; };
-		60175B6819F9CD3900F83CFF /* VNHTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3319F9CD3900F83CFF /* VNHTTPMessage.m */; };
-		60175B6919F9CD3900F83CFF /* VNHTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3319F9CD3900F83CFF /* VNHTTPMessage.m */; };
-		60175B6A19F9CD3900F83CFF /* VNHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3419F9CD3900F83CFF /* VNHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		60175B6B19F9CD3900F83CFF /* VNHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3519F9CD3900F83CFF /* VNHTTPServer.m */; };
-		60175B6C19F9CD3900F83CFF /* VNHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3519F9CD3900F83CFF /* VNHTTPServer.m */; };
-		60175B6D19F9CD3900F83CFF /* VNWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3619F9CD3900F83CFF /* VNWebSocket.h */; };
-		60175B6E19F9CD3900F83CFF /* VNWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3719F9CD3900F83CFF /* VNWebSocket.m */; };
-		60175B6F19F9CD3900F83CFF /* VNWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3719F9CD3900F83CFF /* VNWebSocket.m */; };
+		60175B4919F9CD3900F83CFF /* MultipartFormDataParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1D19F9CD3900F83CFF /* MultipartFormDataParser.h */; };
+		60175B4A19F9CD3900F83CFF /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1E19F9CD3900F83CFF /* MultipartFormDataParser.m */; };
+		60175B4B19F9CD3900F83CFF /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B1E19F9CD3900F83CFF /* MultipartFormDataParser.m */; };
+		60175B4C19F9CD3900F83CFF /* MultipartMessageHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B1F19F9CD3900F83CFF /* MultipartMessageHeader.h */; };
+		60175B4D19F9CD3900F83CFF /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2019F9CD3900F83CFF /* MultipartMessageHeader.m */; };
+		60175B4E19F9CD3900F83CFF /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2019F9CD3900F83CFF /* MultipartMessageHeader.m */; };
+		60175B4F19F9CD3900F83CFF /* MultipartMessageHeaderField.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2119F9CD3900F83CFF /* MultipartMessageHeaderField.h */; };
+		60175B5019F9CD3900F83CFF /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2219F9CD3900F83CFF /* MultipartMessageHeaderField.m */; };
+		60175B5119F9CD3900F83CFF /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2219F9CD3900F83CFF /* MultipartMessageHeaderField.m */; };
+		60175B5219F9CD3900F83CFF /* HTTPAsyncFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2419F9CD3900F83CFF /* HTTPAsyncFileResponse.h */; };
+		60175B5319F9CD3900F83CFF /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2519F9CD3900F83CFF /* HTTPAsyncFileResponse.m */; };
+		60175B5419F9CD3900F83CFF /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2519F9CD3900F83CFF /* HTTPAsyncFileResponse.m */; };
+		60175B5519F9CD3900F83CFF /* HTTPDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2619F9CD3900F83CFF /* HTTPDataResponse.h */; };
+		60175B5619F9CD3900F83CFF /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2719F9CD3900F83CFF /* HTTPDataResponse.m */; };
+		60175B5719F9CD3900F83CFF /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2719F9CD3900F83CFF /* HTTPDataResponse.m */; };
+		60175B5819F9CD3900F83CFF /* HTTPDynamicFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2819F9CD3900F83CFF /* HTTPDynamicFileResponse.h */; };
+		60175B5919F9CD3900F83CFF /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2919F9CD3900F83CFF /* HTTPDynamicFileResponse.m */; };
+		60175B5A19F9CD3900F83CFF /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2919F9CD3900F83CFF /* HTTPDynamicFileResponse.m */; };
+		60175B5B19F9CD3900F83CFF /* HTTPFileResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2A19F9CD3900F83CFF /* HTTPFileResponse.h */; };
+		60175B5C19F9CD3900F83CFF /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2B19F9CD3900F83CFF /* HTTPFileResponse.m */; };
+		60175B5D19F9CD3900F83CFF /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2B19F9CD3900F83CFF /* HTTPFileResponse.m */; };
+		60175B5E19F9CD3900F83CFF /* HTTPRedirectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2C19F9CD3900F83CFF /* HTTPRedirectResponse.h */; };
+		60175B5F19F9CD3900F83CFF /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2D19F9CD3900F83CFF /* HTTPRedirectResponse.m */; };
+		60175B6019F9CD3900F83CFF /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2D19F9CD3900F83CFF /* HTTPRedirectResponse.m */; };
+		60175B6119F9CD3900F83CFF /* HTTPAuthenticationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B2E19F9CD3900F83CFF /* HTTPAuthenticationRequest.h */; };
+		60175B6219F9CD3900F83CFF /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2F19F9CD3900F83CFF /* HTTPAuthenticationRequest.m */; };
+		60175B6319F9CD3900F83CFF /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B2F19F9CD3900F83CFF /* HTTPAuthenticationRequest.m */; };
+		60175B6419F9CD3900F83CFF /* HTTPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3019F9CD3900F83CFF /* HTTPConnection.h */; };
+		60175B6519F9CD3900F83CFF /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3119F9CD3900F83CFF /* HTTPConnection.m */; };
+		60175B6619F9CD3900F83CFF /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3119F9CD3900F83CFF /* HTTPConnection.m */; };
+		60175B6719F9CD3900F83CFF /* HTTPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3219F9CD3900F83CFF /* HTTPMessage.h */; };
+		60175B6819F9CD3900F83CFF /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3319F9CD3900F83CFF /* HTTPMessage.m */; };
+		60175B6919F9CD3900F83CFF /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3319F9CD3900F83CFF /* HTTPMessage.m */; };
+		60175B6A19F9CD3900F83CFF /* HTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3419F9CD3900F83CFF /* HTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60175B6B19F9CD3900F83CFF /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3519F9CD3900F83CFF /* HTTPServer.m */; };
+		60175B6C19F9CD3900F83CFF /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3519F9CD3900F83CFF /* HTTPServer.m */; };
+		60175B6D19F9CD3900F83CFF /* WebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3619F9CD3900F83CFF /* WebSocket.h */; };
+		60175B6E19F9CD3900F83CFF /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3719F9CD3900F83CFF /* WebSocket.m */; };
+		60175B6F19F9CD3900F83CFF /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3719F9CD3900F83CFF /* WebSocket.m */; };
 		60175B7119F9CD3900F83CFF /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 60175B3B19F9CD3900F83CFF /* GCDAsyncSocket.h */; };
 		60175B7219F9CD3900F83CFF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */; };
 		60175B7319F9CD3900F83CFF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */; };
@@ -144,32 +144,32 @@
 		60175B1919F9CD3900F83CFF /* HTTPBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPBase.h; sourceTree = "<group>"; };
 		60175B1A19F9CD3900F83CFF /* HTTPLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPLogging.h; sourceTree = "<group>"; };
 		60175B1B19F9CD3900F83CFF /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponse.h; sourceTree = "<group>"; };
-		60175B1D19F9CD3900F83CFF /* VNMultipartFormDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNMultipartFormDataParser.h; sourceTree = "<group>"; };
-		60175B1E19F9CD3900F83CFF /* VNMultipartFormDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNMultipartFormDataParser.m; sourceTree = "<group>"; };
-		60175B1F19F9CD3900F83CFF /* VNMultipartMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNMultipartMessageHeader.h; sourceTree = "<group>"; };
-		60175B2019F9CD3900F83CFF /* VNMultipartMessageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNMultipartMessageHeader.m; sourceTree = "<group>"; };
-		60175B2119F9CD3900F83CFF /* VNMultipartMessageHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNMultipartMessageHeaderField.h; sourceTree = "<group>"; };
-		60175B2219F9CD3900F83CFF /* VNMultipartMessageHeaderField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNMultipartMessageHeaderField.m; sourceTree = "<group>"; };
-		60175B2419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPAsyncFileResponse.h; sourceTree = "<group>"; };
-		60175B2519F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPAsyncFileResponse.m; sourceTree = "<group>"; };
-		60175B2619F9CD3900F83CFF /* VNHTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPDataResponse.h; sourceTree = "<group>"; };
-		60175B2719F9CD3900F83CFF /* VNHTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPDataResponse.m; sourceTree = "<group>"; };
-		60175B2819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPDynamicFileResponse.h; sourceTree = "<group>"; };
-		60175B2919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPDynamicFileResponse.m; sourceTree = "<group>"; };
-		60175B2A19F9CD3900F83CFF /* VNHTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPFileResponse.h; sourceTree = "<group>"; };
-		60175B2B19F9CD3900F83CFF /* VNHTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPFileResponse.m; sourceTree = "<group>"; };
-		60175B2C19F9CD3900F83CFF /* VNHTTPRedirectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPRedirectResponse.h; sourceTree = "<group>"; };
-		60175B2D19F9CD3900F83CFF /* VNHTTPRedirectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPRedirectResponse.m; sourceTree = "<group>"; };
-		60175B2E19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPAuthenticationRequest.h; sourceTree = "<group>"; };
-		60175B2F19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPAuthenticationRequest.m; sourceTree = "<group>"; };
-		60175B3019F9CD3900F83CFF /* VNHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPConnection.h; sourceTree = "<group>"; };
-		60175B3119F9CD3900F83CFF /* VNHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPConnection.m; sourceTree = "<group>"; };
-		60175B3219F9CD3900F83CFF /* VNHTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPMessage.h; sourceTree = "<group>"; };
-		60175B3319F9CD3900F83CFF /* VNHTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPMessage.m; sourceTree = "<group>"; };
-		60175B3419F9CD3900F83CFF /* VNHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNHTTPServer.h; sourceTree = "<group>"; };
-		60175B3519F9CD3900F83CFF /* VNHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNHTTPServer.m; sourceTree = "<group>"; };
-		60175B3619F9CD3900F83CFF /* VNWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VNWebSocket.h; sourceTree = "<group>"; };
-		60175B3719F9CD3900F83CFF /* VNWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VNWebSocket.m; sourceTree = "<group>"; };
+		60175B1D19F9CD3900F83CFF /* MultipartFormDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartFormDataParser.h; sourceTree = "<group>"; };
+		60175B1E19F9CD3900F83CFF /* MultipartFormDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartFormDataParser.m; sourceTree = "<group>"; };
+		60175B1F19F9CD3900F83CFF /* MultipartMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeader.h; sourceTree = "<group>"; };
+		60175B2019F9CD3900F83CFF /* MultipartMessageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeader.m; sourceTree = "<group>"; };
+		60175B2119F9CD3900F83CFF /* MultipartMessageHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeaderField.h; sourceTree = "<group>"; };
+		60175B2219F9CD3900F83CFF /* MultipartMessageHeaderField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipartMessageHeaderField.m; sourceTree = "<group>"; };
+		60175B2419F9CD3900F83CFF /* HTTPAsyncFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAsyncFileResponse.h; sourceTree = "<group>"; };
+		60175B2519F9CD3900F83CFF /* HTTPAsyncFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAsyncFileResponse.m; sourceTree = "<group>"; };
+		60175B2619F9CD3900F83CFF /* HTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDataResponse.h; sourceTree = "<group>"; };
+		60175B2719F9CD3900F83CFF /* HTTPDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDataResponse.m; sourceTree = "<group>"; };
+		60175B2819F9CD3900F83CFF /* HTTPDynamicFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDynamicFileResponse.h; sourceTree = "<group>"; };
+		60175B2919F9CD3900F83CFF /* HTTPDynamicFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPDynamicFileResponse.m; sourceTree = "<group>"; };
+		60175B2A19F9CD3900F83CFF /* HTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPFileResponse.h; sourceTree = "<group>"; };
+		60175B2B19F9CD3900F83CFF /* HTTPFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPFileResponse.m; sourceTree = "<group>"; };
+		60175B2C19F9CD3900F83CFF /* HTTPRedirectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRedirectResponse.h; sourceTree = "<group>"; };
+		60175B2D19F9CD3900F83CFF /* HTTPRedirectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRedirectResponse.m; sourceTree = "<group>"; };
+		60175B2E19F9CD3900F83CFF /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		60175B2F19F9CD3900F83CFF /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		60175B3019F9CD3900F83CFF /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPConnection.h; sourceTree = "<group>"; };
+		60175B3119F9CD3900F83CFF /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPConnection.m; sourceTree = "<group>"; };
+		60175B3219F9CD3900F83CFF /* HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPMessage.h; sourceTree = "<group>"; };
+		60175B3319F9CD3900F83CFF /* HTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPMessage.m; sourceTree = "<group>"; };
+		60175B3419F9CD3900F83CFF /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
+		60175B3519F9CD3900F83CFF /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPServer.m; sourceTree = "<group>"; };
+		60175B3619F9CD3900F83CFF /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
+		60175B3719F9CD3900F83CFF /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocket.m; sourceTree = "<group>"; };
 		60175B3B19F9CD3900F83CFF /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		60175B3C19F9CD3900F83CFF /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		60175B7519F9CD5F00F83CFF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -281,16 +281,16 @@
 				60175B1B19F9CD3900F83CFF /* HTTPResponse.h */,
 				60175B1C19F9CD3900F83CFF /* Mime */,
 				60175B2319F9CD3900F83CFF /* Responses */,
-				60175B2E19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h */,
-				60175B2F19F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m */,
-				60175B3019F9CD3900F83CFF /* VNHTTPConnection.h */,
-				60175B3119F9CD3900F83CFF /* VNHTTPConnection.m */,
-				60175B3219F9CD3900F83CFF /* VNHTTPMessage.h */,
-				60175B3319F9CD3900F83CFF /* VNHTTPMessage.m */,
-				60175B3419F9CD3900F83CFF /* VNHTTPServer.h */,
-				60175B3519F9CD3900F83CFF /* VNHTTPServer.m */,
-				60175B3619F9CD3900F83CFF /* VNWebSocket.h */,
-				60175B3719F9CD3900F83CFF /* VNWebSocket.m */,
+				60175B2E19F9CD3900F83CFF /* HTTPAuthenticationRequest.h */,
+				60175B2F19F9CD3900F83CFF /* HTTPAuthenticationRequest.m */,
+				60175B3019F9CD3900F83CFF /* HTTPConnection.h */,
+				60175B3119F9CD3900F83CFF /* HTTPConnection.m */,
+				60175B3219F9CD3900F83CFF /* HTTPMessage.h */,
+				60175B3319F9CD3900F83CFF /* HTTPMessage.m */,
+				60175B3419F9CD3900F83CFF /* HTTPServer.h */,
+				60175B3519F9CD3900F83CFF /* HTTPServer.m */,
+				60175B3619F9CD3900F83CFF /* WebSocket.h */,
+				60175B3719F9CD3900F83CFF /* WebSocket.m */,
 			);
 			name = Core;
 			path = ../../Core;
@@ -312,12 +312,12 @@
 		60175B1C19F9CD3900F83CFF /* Mime */ = {
 			isa = PBXGroup;
 			children = (
-				60175B1D19F9CD3900F83CFF /* VNMultipartFormDataParser.h */,
-				60175B1E19F9CD3900F83CFF /* VNMultipartFormDataParser.m */,
-				60175B1F19F9CD3900F83CFF /* VNMultipartMessageHeader.h */,
-				60175B2019F9CD3900F83CFF /* VNMultipartMessageHeader.m */,
-				60175B2119F9CD3900F83CFF /* VNMultipartMessageHeaderField.h */,
-				60175B2219F9CD3900F83CFF /* VNMultipartMessageHeaderField.m */,
+				60175B1D19F9CD3900F83CFF /* MultipartFormDataParser.h */,
+				60175B1E19F9CD3900F83CFF /* MultipartFormDataParser.m */,
+				60175B1F19F9CD3900F83CFF /* MultipartMessageHeader.h */,
+				60175B2019F9CD3900F83CFF /* MultipartMessageHeader.m */,
+				60175B2119F9CD3900F83CFF /* MultipartMessageHeaderField.h */,
+				60175B2219F9CD3900F83CFF /* MultipartMessageHeaderField.m */,
 			);
 			path = Mime;
 			sourceTree = "<group>";
@@ -325,16 +325,16 @@
 		60175B2319F9CD3900F83CFF /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				60175B2419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h */,
-				60175B2519F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m */,
-				60175B2619F9CD3900F83CFF /* VNHTTPDataResponse.h */,
-				60175B2719F9CD3900F83CFF /* VNHTTPDataResponse.m */,
-				60175B2819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h */,
-				60175B2919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m */,
-				60175B2A19F9CD3900F83CFF /* VNHTTPFileResponse.h */,
-				60175B2B19F9CD3900F83CFF /* VNHTTPFileResponse.m */,
-				60175B2C19F9CD3900F83CFF /* VNHTTPRedirectResponse.h */,
-				60175B2D19F9CD3900F83CFF /* VNHTTPRedirectResponse.m */,
+				60175B2419F9CD3900F83CFF /* HTTPAsyncFileResponse.h */,
+				60175B2519F9CD3900F83CFF /* HTTPAsyncFileResponse.m */,
+				60175B2619F9CD3900F83CFF /* HTTPDataResponse.h */,
+				60175B2719F9CD3900F83CFF /* HTTPDataResponse.m */,
+				60175B2819F9CD3900F83CFF /* HTTPDynamicFileResponse.h */,
+				60175B2919F9CD3900F83CFF /* HTTPDynamicFileResponse.m */,
+				60175B2A19F9CD3900F83CFF /* HTTPFileResponse.h */,
+				60175B2B19F9CD3900F83CFF /* HTTPFileResponse.m */,
+				60175B2C19F9CD3900F83CFF /* HTTPRedirectResponse.h */,
+				60175B2D19F9CD3900F83CFF /* HTTPRedirectResponse.m */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -373,27 +373,27 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60175B6119F9CD3900F83CFF /* VNHTTPAuthenticationRequest.h in Headers */,
-				60175B6A19F9CD3900F83CFF /* VNHTTPServer.h in Headers */,
+				60175B6119F9CD3900F83CFF /* HTTPAuthenticationRequest.h in Headers */,
+				60175B6A19F9CD3900F83CFF /* HTTPServer.h in Headers */,
 				60175B4619F9CD3900F83CFF /* HTTPBase.h in Headers */,
-				60175B5219F9CD3900F83CFF /* VNHTTPAsyncFileResponse.h in Headers */,
+				60175B5219F9CD3900F83CFF /* HTTPAsyncFileResponse.h in Headers */,
 				60175B4319F9CD3900F83CFF /* DDRange.h in Headers */,
-				60175B4919F9CD3900F83CFF /* VNMultipartFormDataParser.h in Headers */,
-				60175B5E19F9CD3900F83CFF /* VNHTTPRedirectResponse.h in Headers */,
+				60175B4919F9CD3900F83CFF /* MultipartFormDataParser.h in Headers */,
+				60175B5E19F9CD3900F83CFF /* HTTPRedirectResponse.h in Headers */,
 				60175B3D19F9CD3900F83CFF /* DDData.h in Headers */,
-				60175B4C19F9CD3900F83CFF /* VNMultipartMessageHeader.h in Headers */,
-				60175B6719F9CD3900F83CFF /* VNHTTPMessage.h in Headers */,
-				60175B4F19F9CD3900F83CFF /* VNMultipartMessageHeaderField.h in Headers */,
-				60175B6D19F9CD3900F83CFF /* VNWebSocket.h in Headers */,
+				60175B4C19F9CD3900F83CFF /* MultipartMessageHeader.h in Headers */,
+				60175B6719F9CD3900F83CFF /* HTTPMessage.h in Headers */,
+				60175B4F19F9CD3900F83CFF /* MultipartMessageHeaderField.h in Headers */,
+				60175B6D19F9CD3900F83CFF /* WebSocket.h in Headers */,
 				60175B7119F9CD3900F83CFF /* GCDAsyncSocket.h in Headers */,
-				60175B5B19F9CD3900F83CFF /* VNHTTPFileResponse.h in Headers */,
-				60175B5519F9CD3900F83CFF /* VNHTTPDataResponse.h in Headers */,
+				60175B5B19F9CD3900F83CFF /* HTTPFileResponse.h in Headers */,
+				60175B5519F9CD3900F83CFF /* HTTPDataResponse.h in Headers */,
 				60175B4019F9CD3900F83CFF /* DDNumber.h in Headers */,
-				60175B6419F9CD3900F83CFF /* VNHTTPConnection.h in Headers */,
+				60175B6419F9CD3900F83CFF /* HTTPConnection.h in Headers */,
 				60175B4819F9CD3900F83CFF /* HTTPResponse.h in Headers */,
 				60175B4719F9CD3900F83CFF /* HTTPLogging.h in Headers */,
 				60175AF719F9CD1F00F83CFF /* VNWebService.h in Headers */,
-				60175B5819F9CD3900F83CFF /* VNHTTPDynamicFileResponse.h in Headers */,
+				60175B5819F9CD3900F83CFF /* HTTPDynamicFileResponse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,23 +532,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60175B5919F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m in Sources */,
-				60175B6E19F9CD3900F83CFF /* VNWebSocket.m in Sources */,
-				60175B6219F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m in Sources */,
+				60175B5919F9CD3900F83CFF /* HTTPDynamicFileResponse.m in Sources */,
+				60175B6E19F9CD3900F83CFF /* WebSocket.m in Sources */,
+				60175B6219F9CD3900F83CFF /* HTTPAuthenticationRequest.m in Sources */,
 				60175B4419F9CD3900F83CFF /* DDRange.m in Sources */,
-				60175B6B19F9CD3900F83CFF /* VNHTTPServer.m in Sources */,
+				60175B6B19F9CD3900F83CFF /* HTTPServer.m in Sources */,
 				60175B7219F9CD3900F83CFF /* GCDAsyncSocket.m in Sources */,
-				60175B4A19F9CD3900F83CFF /* VNMultipartFormDataParser.m in Sources */,
+				60175B4A19F9CD3900F83CFF /* MultipartFormDataParser.m in Sources */,
 				60175B3E19F9CD3900F83CFF /* DDData.m in Sources */,
-				60175B5C19F9CD3900F83CFF /* VNHTTPFileResponse.m in Sources */,
+				60175B5C19F9CD3900F83CFF /* HTTPFileResponse.m in Sources */,
 				60175B4119F9CD3900F83CFF /* DDNumber.m in Sources */,
-				60175B6819F9CD3900F83CFF /* VNHTTPMessage.m in Sources */,
-				60175B5319F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m in Sources */,
-				60175B6519F9CD3900F83CFF /* VNHTTPConnection.m in Sources */,
-				60175B5F19F9CD3900F83CFF /* VNHTTPRedirectResponse.m in Sources */,
-				60175B5019F9CD3900F83CFF /* VNMultipartMessageHeaderField.m in Sources */,
-				60175B4D19F9CD3900F83CFF /* VNMultipartMessageHeader.m in Sources */,
-				60175B5619F9CD3900F83CFF /* VNHTTPDataResponse.m in Sources */,
+				60175B6819F9CD3900F83CFF /* HTTPMessage.m in Sources */,
+				60175B5319F9CD3900F83CFF /* HTTPAsyncFileResponse.m in Sources */,
+				60175B6519F9CD3900F83CFF /* HTTPConnection.m in Sources */,
+				60175B5F19F9CD3900F83CFF /* HTTPRedirectResponse.m in Sources */,
+				60175B5019F9CD3900F83CFF /* MultipartMessageHeaderField.m in Sources */,
+				60175B4D19F9CD3900F83CFF /* MultipartMessageHeader.m in Sources */,
+				60175B5619F9CD3900F83CFF /* HTTPDataResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,23 +556,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60175B5119F9CD3900F83CFF /* VNMultipartMessageHeaderField.m in Sources */,
-				60175B6319F9CD3900F83CFF /* VNHTTPAuthenticationRequest.m in Sources */,
+				60175B5119F9CD3900F83CFF /* MultipartMessageHeaderField.m in Sources */,
+				60175B6319F9CD3900F83CFF /* HTTPAuthenticationRequest.m in Sources */,
 				60175B4519F9CD3900F83CFF /* DDRange.m in Sources */,
-				60175B6F19F9CD3900F83CFF /* VNWebSocket.m in Sources */,
-				60175B6919F9CD3900F83CFF /* VNHTTPMessage.m in Sources */,
+				60175B6F19F9CD3900F83CFF /* WebSocket.m in Sources */,
+				60175B6919F9CD3900F83CFF /* HTTPMessage.m in Sources */,
 				60175B7319F9CD3900F83CFF /* GCDAsyncSocket.m in Sources */,
-				60175B6019F9CD3900F83CFF /* VNHTTPRedirectResponse.m in Sources */,
+				60175B6019F9CD3900F83CFF /* HTTPRedirectResponse.m in Sources */,
 				60175B4219F9CD3900F83CFF /* DDNumber.m in Sources */,
 				60175B3F19F9CD3900F83CFF /* DDData.m in Sources */,
-				60175B5D19F9CD3900F83CFF /* VNHTTPFileResponse.m in Sources */,
-				60175B5719F9CD3900F83CFF /* VNHTTPDataResponse.m in Sources */,
-				60175B5A19F9CD3900F83CFF /* VNHTTPDynamicFileResponse.m in Sources */,
-				60175B5419F9CD3900F83CFF /* VNHTTPAsyncFileResponse.m in Sources */,
-				60175B4B19F9CD3900F83CFF /* VNMultipartFormDataParser.m in Sources */,
-				60175B6619F9CD3900F83CFF /* VNHTTPConnection.m in Sources */,
-				60175B4E19F9CD3900F83CFF /* VNMultipartMessageHeader.m in Sources */,
-				60175B6C19F9CD3900F83CFF /* VNHTTPServer.m in Sources */,
+				60175B5D19F9CD3900F83CFF /* HTTPFileResponse.m in Sources */,
+				60175B5719F9CD3900F83CFF /* HTTPDataResponse.m in Sources */,
+				60175B5A19F9CD3900F83CFF /* HTTPDynamicFileResponse.m in Sources */,
+				60175B5419F9CD3900F83CFF /* HTTPAsyncFileResponse.m in Sources */,
+				60175B4B19F9CD3900F83CFF /* MultipartFormDataParser.m in Sources */,
+				60175B6619F9CD3900F83CFF /* HTTPConnection.m in Sources */,
+				60175B4E19F9CD3900F83CFF /* MultipartMessageHeader.m in Sources */,
+				60175B6C19F9CD3900F83CFF /* HTTPServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
