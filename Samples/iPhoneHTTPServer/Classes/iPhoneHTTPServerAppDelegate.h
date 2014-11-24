@@ -1,11 +1,11 @@
 #import <UIKit/UIKit.h>
 
 @class iPhoneHTTPServerViewController;
-@class VNHTTPServer;
+@class HTTPServer;
 
 @interface iPhoneHTTPServerAppDelegate : NSObject <UIApplicationDelegate>
 {
-	VNHTTPServer *httpServer;
+	HTTPServer *httpServer;
 	
 	UIWindow *window;
 	iPhoneHTTPServerViewController *viewController;

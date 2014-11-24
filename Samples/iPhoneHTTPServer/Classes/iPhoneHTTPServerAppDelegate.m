@@ -1,6 +1,6 @@
 #import "iPhoneHTTPServerAppDelegate.h"
 #import "iPhoneHTTPServerViewController.h"
-#import "VNHTTPServer.h"
+#import "HTTPServer.h"
 
 
 @implementation iPhoneHTTPServerAppDelegate
@@ -11,7 +11,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Create server using our custom MyHTTPServer class
-	httpServer = [[VNHTTPServer alloc] init];
+	httpServer = [[HTTPServer alloc] init];
 	
 	// Tell the server to broadcast its presence via Bonjour.
 	// This allows browsers such as Safari to automatically discover our service.
